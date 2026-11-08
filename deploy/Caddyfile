@@ -1,0 +1,9 @@
+# Replace {$SITE_HOST} via the environment, or setup_server.sh writes the real host here.
+# Caddy obtains a Let's Encrypt certificate automatically for <static-ip>.sslip.io.
+{$SITE_HOST} {
+	encode gzip
+	request_body {
+		max_size 3MB
+	}
+	reverse_proxy 127.0.0.1:8000
+}

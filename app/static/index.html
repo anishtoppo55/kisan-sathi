@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kisan Saathi CG</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <h1>🌾 Kisan Saathi CG</h1>
+      <span class="badge-powered">Powered by Gnani Prisma v3.0 &amp; Timbre v3.0</span>
+    </div>
+    <p class="tagline">Yojana · Fasal · Mausam — bolkar ya likhkar poochhiye (Hindi / Hinglish)</p>
+  </header>
+
+  <main class="container layout">
+    <section class="chat-panel">
+      <div class="chips" id="chips" aria-label="Example questions">
+        <span class="chip-group">📋 Yojana</span>
+        <button type="button" class="chip">Main 2 acre ka kisan hoon, income tax nahi bharta, KCC nahi hai</button>
+        <button type="button" class="chip">PM-Kisan ke liye kaun se documents chahiye?</button>
+        <button type="button" class="chip">धान बेचने के लिए टोकन कैसे मिलेगा?</button>
+        <span class="chip-group">🌱 Fasal</span>
+        <button type="button" class="chip">Chana mein phool aa rahe hain, sinchai karun?</button>
+        <button type="button" class="chip">Dhaan mein bhura maahu lag gaya hai kya karun?</button>
+        <span class="chip-group">🌦️ Mausam</span>
+        <button type="button" class="chip">Bemetara mein agle hafte barish hogi? Gehun mein paani doon?</button>
+      </div>
+
+      <div id="messages" class="messages" aria-live="polite"></div>
+
+      <form id="chat-form" class="composer">
+        <button type="button" id="mic-btn" class="mic" title="Mic support check ho raha hai" disabled>🎤</button>
+        <input id="chat-input" type="text" maxlength="1000" placeholder="Apna sawal likhiye ya 🎤 dabakar boliye…" autocomplete="off" required>
+        <button type="submit" id="send-btn">Bhejein</button>
+      </form>
+    </section>
+
+    <section class="cards-panel">
+      <h2>Parinaam</h2>
+      <div id="cards" class="cards"><p class="muted">Jawab ke saath yahan yojana, fasal aur mausam ke card dikhenge.</p></div>
+    </section>
+  </main>
+
+  <footer class="container muted small">
+    Yeh salah sirf jaankari ke liye hai. Yojana ki shartein aur dawa/khaad ki matra apne nazdeeki KVK, RAEO ya krishi vibhag se pushti karein.
+    Mausam: Open-Meteo. Jaankari: pmkisan.gov.in, pmfby.gov.in, ICAR / NCIPM.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

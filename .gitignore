@@ -1,0 +1,20 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Runtime caches
+.cache/
+tts_cache/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,91 @@
+{
+  "_note": "Card data and eligibility rules. Facts mirror kb/schemes/*.md (see their 'verified' front-matter). Checks: a check passes/fails/unknown from FarmerProfile fields. Any fail -> not_eligible; else any unknown -> needs_check; else eligible.",
+  "schemes": [
+    {
+      "id": "pm-kisan",
+      "name": {"hi-IN": "पीएम किसान सम्मान निधि", "hi-en": "PM-Kisan Samman Nidhi"},
+      "benefit": {"hi-IN": "₹6,000 प्रति वर्ष, ₹2,000 की तीन किस्तों में सीधे बैंक खाते में", "hi-en": "₹6,000 saal mein, ₹2,000 ki teen kist seedhe bank khate mein"},
+      "documents": {"hi-IN": ["आधार कार्ड", "ज़मीन का रिकॉर्ड (B1/खसरा)", "आधार से जुड़ा बैंक खाता", "e-KYC"], "hi-en": ["Aadhaar card", "Zameen ka record (B1/khasra)", "Aadhaar-linked bank khata", "e-KYC"]},
+      "apply": {"hi-IN": "pmkisan.gov.in, नज़दीकी CSC या पटवारी/RAEO के ज़रिए", "hi-en": "pmkisan.gov.in, nazdeeki CSC ya patwari/RAEO ke zariye"},
+      "helpline": "155261 / 011-24300606",
+      "link": "https://pmkisan.gov.in/",
+      "keywords": ["pm-kisan", "pm kisan", "पीएम किसान", "किसान सम्मान", "samman nidhi", "6000", "6,000", "kist", "किस्त"],
+      "checks": [
+        {"field": "owns_land", "is": true,
+         "fail": {"hi-IN": "ज़मीन आपके नाम पर होनी चाहिए (बटाईदार/किरायेदार पात्र नहीं)", "hi-en": "Zameen aapke naam par honi chahiye (bataidar/kirayedar paatra nahi)"},
+         "ask": {"hi-IN": "क्या ज़मीन आपके नाम पर है?", "hi-en": "Kya zameen aapke naam par hai?"}},
+        {"field": "income_tax_payer", "is": false,
+         "fail": {"hi-IN": "पिछले वर्ष आयकर भरने वाले पात्र नहीं हैं", "hi-en": "Pichhle saal income tax bharne wale paatra nahi hain"},
+         "ask": {"hi-IN": "क्या आप आयकर (income tax) भरते हैं?", "hi-en": "Kya aap income tax bharte hain?"}},
+        {"field": "govt_employee_or_pensioner_10k", "is": false,
+         "fail": {"hi-IN": "सरकारी कर्मचारी या ₹10,000+ मासिक पेंशन वाले पात्र नहीं (Group D/चतुर्थ श्रेणी छोड़कर)", "hi-en": "Sarkari karmachari ya ₹10,000+ pension wale paatra nahi (Group D chhodkar)"},
+         "ask": {"hi-IN": "क्या आप सरकारी कर्मचारी हैं या ₹10,000+ पेंशन लेते हैं?", "hi-en": "Kya aap sarkari karmachari hain ya ₹10,000+ pension lete hain?"}}
+      ],
+      "notes": {"hi-IN": ["डॉक्टर, इंजीनियर, वकील, CA जैसे पंजीकृत पेशेवर पात्र नहीं हैं।"], "hi-en": ["Doctor, engineer, vakeel, CA jaise registered professional paatra nahi hain."]}
+    },
+    {
+      "id": "krishak-unnati",
+      "name": {"hi-IN": "कृषक उन्नति योजना (छत्तीसगढ़)", "hi-en": "Krishak Unnati Yojana (Chhattisgarh)"},
+      "benefit": {"hi-IN": "धान ₹3,100 प्रति क्विंटल (21 क्विंटल/एकड़ तक); दलहन-तिलहन-मक्का आदि पर ₹15,000 प्रति एकड़", "hi-en": "Dhaan ₹3,100 prati quintal (21 quintal/acre tak); dalhan-tilhan-makka par ₹15,000 prati acre"},
+      "documents": {"hi-IN": ["आधार और मोबाइल नंबर", "बैंक पासबुक", "B1/खसरा", "एग्रीस्टैक किसान ID", "एकीकृत किसान पोर्टल पंजीयन"], "hi-en": ["Aadhaar aur mobile number", "Bank passbook", "B1/khasra", "Agristack Farmer ID", "Ekikrit Kisan Portal panjiyan"]},
+      "apply": {"hi-IN": "अपनी सहकारी समिति में पंजीयन; टोकन 'तुंहर टोकन' ऐप से", "hi-en": "Apni sahkari samiti mein panjiyan; token 'Tuhar Token' app se"},
+      "helpline": null,
+      "link": "https://kisan.cg.nic.in/",
+      "keywords": ["krishak unnati", "कृषक उन्नति", "dhaan kharidi", "धान खरीदी", "3100", "3,100", "token", "टोकन", "samiti", "समिति", "समर्थन मूल्य", "samarthan mulya", "msp"],
+      "checks": [
+        {"any": [{"field": "owns_land", "is": true}, {"field": "is_tenant", "is": true}],
+         "fail": {"hi-IN": "आपको खेती करने वाला किसान होना चाहिए", "hi-en": "Aapko kheti karne wala kisan hona chahiye"},
+         "ask": {"hi-IN": "क्या आप खेती करते हैं (अपनी या किराये की ज़मीन पर)?", "hi-en": "Kya aap kheti karte hain (apni ya kiraye ki zameen par)?"}},
+        {"field": "registered_on_state_portal", "is": true,
+         "fail": {"hi-IN": "पहले एकीकृत किसान पोर्टल पर पंजीयन और एग्रीस्टैक ID ज़रूरी है", "hi-en": "Pehle Ekikrit Kisan Portal par panjiyan aur Agristack ID zaroori hai"},
+         "ask": {"hi-IN": "क्या आपका एकीकृत किसान पोर्टल/समिति में पंजीयन है?", "hi-en": "Kya aapka Ekikrit Kisan Portal/samiti mein panjiyan hai?"}}
+      ],
+      "notes": {"hi-IN": ["धान की बिक्री सहकारी समिति (उपार्जन केंद्र) में ही करनी होगी।", "धान की जगह दलहन, तिलहन, मक्का, कोदो-कुटकी, रागी या कपास लगाने पर भी ₹15,000/एकड़ सहायता।"], "hi-en": ["Dhaan sahkari samiti (upaarjan kendra) mein hi bechna hoga.", "Dhaan ki jagah dalhan, tilhan, makka, kodo-kutki, ragi ya kapas lagane par bhi ₹15,000/acre sahayata."]}
+    },
+    {
+      "id": "pmfby",
+      "name": {"hi-IN": "प्रधानमंत्री फसल बीमा योजना", "hi-en": "PM Fasal Bima Yojana"},
+      "benefit": {"hi-IN": "फसल नुकसान पर बीमा; किसान प्रीमियम खरीफ 2%, रबी 1.5%", "hi-en": "Fasal nuksaan par bima; premium kharif 2%, rabi 1.5%"},
+      "documents": {"hi-IN": ["आधार कार्ड", "बैंक पासबुक", "B1/खसरा या बटाई अनुबंध", "बोनी प्रमाण पत्र"], "hi-en": ["Aadhaar card", "Bank passbook", "B1/khasra ya batai anubandh", "Bowni pramaan patra"]},
+      "apply": {"hi-IN": "बैंक, सहकारी समिति, CSC या pmfby.gov.in / Crop Insurance ऐप", "hi-en": "Bank, sahkari samiti, CSC ya pmfby.gov.in / Crop Insurance app"},
+      "helpline": "14447",
+      "link": "https://pmfby.gov.in/",
+      "keywords": ["fasal bima", "फसल बीमा", "pmfby", "crop insurance", "बीमा", "bima", "premium", "प्रीमियम"],
+      "checks": [
+        {"any": [{"field": "owns_land", "is": true}, {"field": "is_tenant", "is": true}],
+         "fail": {"hi-IN": "खेती करने वाले किसान (मालिक या बटाईदार) ही बीमा ले सकते हैं", "hi-en": "Kheti karne wale kisan (malik ya bataidar) hi bima le sakte hain"},
+         "ask": {"hi-IN": "क्या आप खेती करते हैं (अपनी या बटाई की ज़मीन पर)?", "hi-en": "Kya aap kheti karte hain (apni ya batai ki zameen par)?"}}
+      ],
+      "notes": {"hi-IN": ["फसल और क्षेत्र अधिसूचित (notified) होना चाहिए — बैंक या कृषि कार्यालय से पुष्टि करें।", "नुकसान की सूचना 72 घंटे में 14447 पर दें।"], "hi-en": ["Fasal aur kshetra notified hona chahiye — bank ya krishi karyalay se pushti karein.", "Nuksaan ki soochna 72 ghante mein 14447 par dein."]}
+    },
+    {
+      "id": "kcc",
+      "name": {"hi-IN": "किसान क्रेडिट कार्ड (KCC)", "hi-en": "Kisan Credit Card (KCC)"},
+      "benefit": {"hi-IN": "7% पर फसल ऋण; समय पर चुकाने पर प्रभावी ~4%; ₹5 लाख तक ब्याज छूट; ₹2 लाख तक बिना गिरवी", "hi-en": "7% par fasal rin; samay par chukane par ~4%; ₹5 lakh tak byaaj chhoot; ₹2 lakh tak bina girvi"},
+      "documents": {"hi-IN": ["KCC आवेदन फॉर्म", "आधार और फोटो", "B1/खसरा या बटाई प्रमाण", "फसल की जानकारी"], "hi-en": ["KCC aavedan form", "Aadhaar aur photo", "B1/khasra ya batai praman", "Fasal ki jaankari"]},
+      "apply": {"hi-IN": "किसी भी बैंक शाखा या प्राथमिक सहकारी समिति (PACS) में", "hi-en": "Kisi bhi bank shakha ya PACS samiti mein"},
+      "helpline": null,
+      "link": "https://fasalrin.gov.in/",
+      "keywords": ["kcc", "kisan credit", "किसान क्रेडिट", "क्रेडिट कार्ड", "loan", "rin", "ऋण", "लोन", "byaaj", "ब्याज"],
+      "already_field": "has_kcc",
+      "checks": [
+        {"any": [{"field": "owns_land", "is": true}, {"field": "is_tenant", "is": true}],
+         "fail": {"hi-IN": "खेती करने वाले किसान (मालिक, किरायेदार या बटाईदार) ही पात्र हैं", "hi-en": "Kheti karne wale kisan (malik, kirayedar ya bataidar) hi paatra hain"},
+         "ask": {"hi-IN": "क्या आप खेती करते हैं (अपनी, किराये या बटाई की ज़मीन पर)?", "hi-en": "Kya aap kheti karte hain (apni, kiraye ya batai ki zameen par)?"}}
+      ],
+      "notes": {"hi-IN": ["ब्याज छूट के लिए KCC खाता आधार से जुड़ा होना चाहिए।"], "hi-en": ["Byaaj chhoot ke liye KCC khata Aadhaar se juda hona chahiye."]}
+    },
+    {
+      "id": "soil-health-card",
+      "name": {"hi-IN": "मृदा स्वास्थ्य कार्ड", "hi-en": "Soil Health Card"},
+      "benefit": {"hi-IN": "मुफ़्त मिट्टी जाँच; 12 तत्वों की जानकारी और खाद की सलाह", "hi-en": "Muft mitti jaanch; 12 tatvon ki jaankari aur khaad ki salah"},
+      "documents": {"hi-IN": ["नाम, मोबाइल, खसरा नंबर और गाँव", "खेत की मिट्टी का नमूना (~½ किलो)"], "hi-en": ["Naam, mobile, khasra number aur gaon", "Khet ki mitti ka namuna (~½ kilo)"]},
+      "apply": {"hi-IN": "RAEO, कृषि विभाग, मिट्टी जाँच लैब या KVK; कार्ड soilhealth.dac.gov.in पर", "hi-en": "RAEO, krishi vibhag, mitti jaanch lab ya KVK; card soilhealth.dac.gov.in par"},
+      "helpline": null,
+      "link": "https://soilhealth.dac.gov.in/",
+      "keywords": ["soil health", "मृदा", "मिट्टी", "mitti", "soil test", "मिट्टी जांच", "मिट्टी जाँच"],
+      "checks": [],
+      "notes": {"hi-IN": ["धान कटाई के बाद (नवंबर–दिसंबर) रबी से पहले जाँच का सही समय है।"], "hi-en": ["Dhaan katai ke baad (November–December) rabi se pehle jaanch ka sahi samay hai."]}
+    }
+  ]
+}

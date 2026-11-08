@@ -1,0 +1,65 @@
+:root { --pico-font-size: 100%; --ok: #2e7d32; --warn: #ef6c00; --bad: #c62828; --info: #1565c0; }
+header { padding-top: 1rem; }
+.brand { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+header h1 { margin-bottom: 0; }
+.badge-powered { font-size: .75rem; padding: .2rem .55rem; border-radius: 999px; background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+.tagline { margin-top: .25rem; color: var(--pico-muted-color); }
+.muted { color: var(--pico-muted-color); }
+.small { font-size: .85rem; }
+
+.layout { display: grid; grid-template-columns: 3fr 2fr; gap: 1.5rem; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .6rem; align-items: center; }
+.chip { width: auto; margin: 0; padding: .3rem .7rem; font-size: .8rem; border-radius: 999px;
+  background: transparent; color: var(--pico-primary); border: 1px solid var(--pico-primary-border); }
+.chip-group { font-size: .75rem; font-weight: 600; color: var(--pico-muted-color); margin-left: .25rem; }
+
+.messages {
+  height: 52vh; overflow-y: auto; padding: 1rem;
+  border: 1px solid var(--pico-muted-border-color); border-radius: .75rem;
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.bubble { max-width: 85%; padding: .6rem .9rem; border-radius: 1rem; white-space: pre-wrap; word-wrap: break-word; }
+.bubble.user { align-self: flex-end; background: var(--pico-primary-background); color: var(--pico-primary-inverse); border-bottom-right-radius: .25rem; }
+.bubble.bot  { align-self: flex-start; background: var(--pico-card-sectioning-background-color); border-bottom-left-radius: .25rem; }
+.bubble.error { background: #fde2e2; color: #8a1c1c; }
+.bubble.pending { opacity: .7; font-style: italic; }
+.replay { margin-left: .4rem; padding: 0 .4rem; width: auto; font-size: .85rem; background: transparent; border: none; cursor: pointer; }
+
+.composer { display: flex; gap: .5rem; margin-top: .75rem; align-items: center; }
+.composer input { flex: 1; margin-bottom: 0; }
+.composer button { width: auto; margin-bottom: 0; }
+.mic { font-size: 1.3rem; border-radius: 50%; }
+.mic.recording { background: var(--bad); border-color: var(--bad); animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: .6; } }
+
+.cards { display: flex; flex-direction: column; gap: .75rem; }
+.card { margin: 0; padding: 1rem; }
+.card h3 { font-size: 1.05rem; margin-bottom: .4rem; }
+.card h4 { font-size: .9rem; margin: .6rem 0 .25rem; }
+.card ul { margin-bottom: .3rem; padding-left: 1.1rem; }
+.card li { font-size: .9rem; }
+.card .kind { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--pico-muted-color); }
+.card .meta-line { font-size: .85rem; margin: .2rem 0; }
+.card a { word-break: break-all; }
+
+.status { display: inline-block; font-size: .75rem; font-weight: 600; padding: .1rem .5rem; border-radius: 999px; color: #fff; }
+.status.eligible { background: var(--ok); }
+.status.already_enrolled { background: var(--info); }
+.status.needs_check { background: var(--warn); }
+.status.not_eligible { background: var(--bad); }
+.elig-row { border-top: 1px solid var(--pico-muted-border-color); padding: .5rem 0; }
+.elig-row:first-of-type { border-top: none; }
+.elig-row .name { font-weight: 600; margin-right: .4rem; }
+.elig-row p { margin: .2rem 0; font-size: .85rem; }
+
+.profile-form { display: grid; grid-template-columns: 1fr auto; gap: .2rem .5rem; align-items: center; font-size: .85rem; margin-top: .4rem; }
+.profile-form select, .profile-form input { margin: 0; padding: .2rem .4rem; font-size: .85rem; height: auto; }
+.profile-form button { grid-column: 1 / -1; margin-top: .4rem; }
+
+.advisory { font-size: .85rem; padding: .35rem .6rem; border-radius: .5rem; margin: .3rem 0; border-left: 4px solid var(--ok); background: #f1f8e9; }
+.advisory.warn { border-color: var(--warn); background: #fff3e0; }
+.advisory.alert { border-color: var(--bad); background: #ffebee; }
+.chart-wrap { position: relative; height: 200px; }
+.reminder { font-size: .8rem; color: #8a4b00; background: #fff8e1; padding: .35rem .6rem; border-radius: .4rem; margin-top: .4rem; }

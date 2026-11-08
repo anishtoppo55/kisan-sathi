@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# One-time setup on a fresh Ubuntu 24.04 Lightsail instance. Run ON THE SERVER as user ubuntu:
+#   bash deploy/setup_server.sh <REPO_URL> <STATIC_IP>
+# Example:
+#   bash deploy/setup_server.sh https://github.com/you/kisan-saathi.git 13.233.10.20
+set -euo pipefail
+
+REPO_URL="${1:?repo url required}"
+STATIC_IP="${2:?static ip required}"
+APP_DIR=/home/ubuntu/kisan-saathi
+SITE_HOST="${STATIC_IP//./-}.sslip.io"   # dashed form also resolves on sslip.io
+
+sudo apt-get update
+sudo apt-get install -y python3-venv python3-pip ffmpeg git debian-keyring debian-archive-keyring apt-transport-https curl
+
+# Caddy (official apt repo)
+if ! command -v caddy >/dev/null; then
+  curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+  curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+  sudo apt-get update && sudo apt-get install -y caddy
+fi
+
+# App
+[ -d "$APP_DIR/.git" ] || git clone "$REPO_URL" "$APP_DIR"
+cd "$APP_DIR"
+python3 -m venv .venv
+.venv/bin/pip install -q --upgrade pip
+.venv/bin/pip install -q -r requirements.txt
+
+if [ ! -f .env ]; then
+  echo "!! Copy your .env first:  scp .env ubuntu@$STATIC_IP:$APP_DIR/.env  then re-run."
+  exit 1
+fi
+chmod 600 .env
+
+sudo cp deploy/kisan-saathi.service /etc/systemd/system/kisan-saathi.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now kisan-saathi
+
+sed "s|{\$SITE_HOST}|$SITE_HOST|" deploy/Caddyfile | sudo tee /etc/caddy/Caddyfile >/dev/null
+sudo systemctl reload caddy || sudo systemctl restart caddy
+
+echo "Done. Open: https://$SITE_HOST"

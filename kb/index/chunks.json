@@ -1,0 +1,1123 @@
+[
+ {
+  "id": "chana#overview",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — overview",
+  "text": "Chana is the main rabi pulse of Chhattisgarh. It is sown after the kharif harvest in October–November, mostly on residual moisture, and harvested in February–March. It needs little water and fixes nitrogen in the soil.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "chana#1",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Sowing and varieties (buvai aur kism)",
+  "text": "- Sow on time (October to mid-November); early and timely sowing with early maturing varieties reduces pod borer damage.\n- Wilt-tolerant varieties listed by NCIPM include JG 11, JG 12, JG 14, JG 16, JG 315, JG 322, JG 63, JG 74, JAKI 9218, Vijay, Vishal, Rajas and others. Ask your KVK which of these is available and suits your area.\n- Do not grow chana in fields with severe wilt or dry root rot for at least three years; rotate with a non-legume crop.\n- Mix about 5 g of rabi sorghum (jowar) or sunflower seed with the chana seed so birds that eat caterpillars are attracted.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Sowing and varieties (buvai aur kism)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "variety",
+    "sowing"
+   ]
+  }
+ },
+ {
+  "id": "chana#2",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Seed treatment (beej upchar)",
+  "text": "- Treat seed with Trichoderma viride at 4–10 g per kg of seed against wilt and root rot.\n- In wilt or root rot affected fields, mix Trichoderma viride at 5 kg per hectare with about 100 kg well-decomposed FYM (gobar khaad) and apply to moist soil.\n- Against termites (deemak), seed treatment with chlorpyriphos 20 EC at 15–30 ml per kg of seed.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Seed treatment (beej upchar)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "disease",
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "chana#3",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Wilt and root rot (ukhta / ukheda rog)",
+  "text": "- Symptom: plants droop and dry in patches although the soil is moist; split stem near the base shows brown-black streaks inside.\n- ETL: 5–10% plants infested.\n- Prevention is the main control: resistant varieties, Trichoderma seed treatment, crop rotation and avoiding moisture stress.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Wilt and root rot (ukhta / ukheda rog)",
+   "stage": [
+    "sowing",
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "chana#4",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Irrigation (sinchai)",
+  "text": "- Chana needs little water. Where irrigation is available, one light irrigation at branching (about 40–45 days) and, if needed, one at pod formation is usually enough.\n- Avoid irrigation at full flowering and avoid waterlogging; excess water causes flower drop, too much vegetative growth and root diseases.\n- Do not irrigate if rain is forecast.\n- In deep black soils with excessive growth, nipping the shoot tips (detopping) at about 30 days after sowing is recommended.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Irrigation (sinchai)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "irrigation"
+   ]
+  }
+ },
+ {
+  "id": "chana#5",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Pod borer (fali chhedak, ilii)",
+  "text": "- Symptom: green caterpillars eat leaves and then bore into pods, eating the seeds.\n- Monitor with pheromone traps; fix bird perches (T-shaped sticks) at about 20 per hectare.\n- ETL: 5–8 eggs or 2 small larvae per 10 plants, or one grown larva (more than 1 cm) per 10 plants or per metre of row.\n- First option: neem-based azadirachtin 0.03% at 2.5–5 litre per hectare or NSKE 5% at the pre-flowering stage; HaNPV at 250 LE per hectare in the evening when the first young larvae appear; or Bt (Bacillus thuringiensis) at 1 kg per hectare.\n- After ETL, chemical options: emamectin benzoate 5% SG at 220 g per hectare, or novaluron 10% EC at 700 ml per hectare, or quinalphos 25 EC at 1 litre per hectare.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Pod borer (fali chhedak, ilii)",
+   "stage": [
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "chana#6",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Frost and cold (paala)",
+  "text": "- Frost on clear, calm winter nights can damage flowers and young pods.\n- When frost is forecast, give a light irrigation in the evening and, where practical, make smoke on the windward side of the field at night.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Frost and cold (paala)",
+   "stage": [
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "weather"
+   ]
+  }
+ },
+ {
+  "id": "chana#7",
+  "title": "Chana / Gram (चना) — Chhattisgarh rabi — Harvest (katai)",
+  "text": "- Harvest when leaves turn reddish-brown and shed and pods are dry. Dry the plants in the sun and thresh; store seed with low moisture in clean bags.\n- After harvest, deep ploughing and destroying stubble reduces wilt and pests in the next season.",
+  "meta": {
+   "id": "chana",
+   "module": "crop",
+   "crop": "chana",
+   "title": "Chana / Gram (चना) — Chhattisgarh rabi",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
+   "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
+   "section": "Harvest (katai)",
+   "stage": [
+    "maturity",
+    "post-harvest"
+   ],
+   "topic": [
+    "harvest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#overview",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — overview",
+  "text": "Paddy is the main kharif crop of Chhattisgarh (\"dhaan ka katora\"). It is transplanted or direct-seeded in June–July and harvested in October–November. Common varieties include MTU-1010, Swarna, and IGKV Raipur varieties such as Rajeshwari, Indira Sona, Indira Maheshwari and Chhattisgarh Zinc Rice-1. Choose a variety suited to your land (bahra/low land or tikra/upland) on the advice of your RAEO or KVK.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "paddy#1",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Integrated pest management basics (IPM, keet niyantran ke niyam)",
+  "text": "- Check the field every week; walk diagonally and look at 20 hills.\n- Spray chemicals only when a pest crosses its Economic Threshold Level (ETL, aarthik kshati star). Below ETL, natural enemies like spiders, ladybird beetles and dragonflies keep pests in check.\n- Use pheromone traps for stem borer monitoring and light traps where possible.\n- Avoid excess nitrogen (urea); it increases brown planthopper, blast and bacterial leaf blight.\n- Spray in clear weather, not before rain, and use the exact product and dose on the label or as advised by the KVK.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Integrated pest management basics (IPM, keet niyantran ke niyam)",
+   "stage": [
+    "all"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#2",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Seed treatment and nursery (beej upchar aur nursery)",
+  "text": "- Seed treatment for seed- and soil-borne diseases: carbendazim 50% WP at 2 g per kg seed, or Trichoderma / Pseudomonas as a bio-agent.\n- Nursery ETL: yellow stem borer 1 egg mass per square metre.\n- Nursery blast: spray tricyclazole 75% WP at 300–400 g per hectare, or isoprothiolane 40% EC at 750 ml per hectare.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Seed treatment and nursery (beej upchar aur nursery)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "disease",
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#3",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Stem borer (tana chhedak, dead heart, safed baali)",
+  "text": "- Symptom: central shoot dries (\"dead heart\") at tillering; empty white panicles (\"white ear / safed baali\") at heading.\n- ETL (tillering): 2 egg masses per square metre, or 10% dead hearts, or 1 moth per square metre, or 25 moths per pheromone trap per week.\n- Control after ETL: cartap hydrochloride 4% granules at 18.75 kg per hectare, or cartap hydrochloride 50% SP at 1 kg per hectare.\n- Remove and destroy egg masses; after harvest, plough stubble to kill hibernating larvae.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Stem borer (tana chhedak, dead heart, safed baali)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#4",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Brown planthopper, BPH (bhura maahu, maahu)",
+  "text": "- Symptom: hoppers at the base of plants; round patches of dried, burnt-looking plants (\"hopper burn\").\n- ETL: 10–15 hoppers per hill at tillering; 15–20 hoppers per hill from panicle initiation to booting.\n- Drain standing water for a few days and avoid extra urea.\n- Control after ETL: imidacloprid 30.5% SC at 60–75 ml per hectare, or buprofezin 25% SC at 800 ml per hectare, or ethofenprox 10% EC at 500–750 ml per hectare. Direct the spray to the base of the plants.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Brown planthopper, BPH (bhura maahu, maahu)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#5",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Leaf folder (patti lapetak)",
+  "text": "- Symptom: leaves folded lengthwise with white streaks where the larva scrapes the leaf.\n- ETL: 2 fully damaged leaves with larva per hill.\n- Control after ETL: cartap hydrochloride 50% SP at 1 kg per hectare.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Leaf folder (patti lapetak)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#6",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Gundhi bug (gandhi bug, gundhi keet)",
+  "text": "- Symptom: bad smell in the field; grains become empty or chaffy at the milky stage.\n- ETL: 2 bugs per hill from flowering to milky grain stage.\n- Keep bunds and field edges free of grassy weeds, where the bug survives.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Gundhi bug (gandhi bug, gundhi keet)",
+   "stage": [
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#7",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Blast (jhulsa / neck blast, gardan tod)",
+  "text": "- Symptom: spindle-shaped (eye-shaped) spots with grey centres on leaves; neck of the panicle turns black and breaks.\n- ETL: 3–5 lesions per leaf (leaf blast); 2–5 neck-infected plants per square metre (neck blast).\n- Control: tricyclazole 75% WP at 300–400 g per hectare, or isoprothiolane 40% EC at 750 ml per hectare. Apply nitrogen only in small split doses.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Blast (jhulsa / neck blast, gardan tod)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "paddy#8",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Sheath blight (sheath jhulsa)",
+  "text": "- Symptom: oval greenish-grey patches on the leaf sheath near the water line that join up.\n- ETL: lesions of 5–6 mm and 2–3 infected plants per square metre.\n- Control: hexaconazole 5% EC at 1 litre per hectare, or propiconazole 25% EC at 750 ml per hectare, or validamycin 3% L at 2 litre per hectare.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Sheath blight (sheath jhulsa)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "paddy#9",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Bacterial leaf blight, BLB (jhulsa rog)",
+  "text": "- Symptom: yellow to straw-coloured wavy stripes from the leaf tip down the edges.\n- ETL: 2–3 infected leaves per square metre.\n- Reduce nitrogen; apply only small split doses. Spray streptomycin sulphate 9% + tetracycline hydrochloride 1% SP at 100–150 ppm if advised by the KVK.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Bacterial leaf blight, BLB (jhulsa rog)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "paddy#10",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Harvest (katai)",
+  "text": "- Harvest when about 80–85% of the grains in the panicle turn golden yellow and grain is hard. Late harvest causes grain shattering and breakage.\n- Drain the field 7–10 days before harvest so the soil dries.\n- For teora/lakhdi or other utera crops, broadcast the seed into the standing paddy before harvest while the soil is still moist (see the teora guide).",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Harvest (katai)",
+   "stage": [
+    "maturity"
+   ],
+   "topic": [
+    "harvest"
+   ]
+  }
+ },
+ {
+  "id": "paddy#11",
+  "title": "Dhaan / Paddy (धान) — Chhattisgarh — Drying and storage (sukhana aur bhandaran)",
+  "text": "- Dry the grain in the sun on a clean surface until moisture is about 12–14% (grain cracks sharply when bitten) before storage or sale.\n- Clean the grain of chaff and weeds; well-dried, clean paddy gets the full price at the society.\n- Store in clean, dry gunny bags on wooden planks, away from walls; keep the store dry and protect it from rats.\n- After harvest, plough the stubble instead of burning it; burning kills soil life and natural enemies.",
+  "meta": {
+   "id": "paddy",
+   "module": "crop",
+   "crop": "paddy",
+   "title": "Dhaan / Paddy (धान) — Chhattisgarh",
+   "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Rice (2014)",
+   "source_url": "https://ppqs.gov.in/sites/default/files/rice.pdf",
+   "section": "Drying and storage (sukhana aur bhandaran)",
+   "stage": [
+    "post-harvest"
+   ],
+   "topic": [
+    "harvest",
+    "storage"
+   ]
+  }
+ },
+ {
+  "id": "teora#overview",
+  "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh — overview",
+  "text": "Teora (also called tiwda, lakhdi or khesari) is a hardy rabi pulse that grows on residual moisture after paddy, with almost no irrigation. In Chhattisgarh it is mostly grown by the utera (paira) method: seed is broadcast into the standing paddy crop before harvest. The crop needs about 15–25°C from sowing to harvest.",
+  "meta": {
+   "id": "teora",
+   "module": "crop",
+   "crop": "teora",
+   "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh",
+   "source_name": "Directorate of Pulses Development / Vikaspedia lathyrus package; Chhattisgarh field studies on low-ODAP lathyrus",
+   "source_url": "https://vikaspedia.in/agriculture/crop-production/package-of-practices/pulses/lathyrus",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "teora#1",
+  "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh — Utera method (utera / paira vidhi)",
+  "text": "- No tillage is needed under the utera system.\n- Broadcast the teora seed evenly into the standing paddy about 1–2 weeks before paddy harvest, when the field is still moist but not flooded (the soil should be soft, like wet dough).\n- Harvest the paddy carefully, cutting high so the young teora seedlings are not damaged.\n- Utera saves the cost and time of ploughing and uses the moisture left after paddy, so it is useful where irrigation is not available.",
+  "meta": {
+   "id": "teora",
+   "module": "crop",
+   "crop": "teora",
+   "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh",
+   "source_name": "Directorate of Pulses Development / Vikaspedia lathyrus package; Chhattisgarh field studies on low-ODAP lathyrus",
+   "source_url": "https://vikaspedia.in/agriculture/crop-production/package-of-practices/pulses/lathyrus",
+   "section": "Utera method (utera / paira vidhi)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "sowing"
+   ]
+  }
+ },
+ {
+  "id": "teora#2",
+  "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh — Seed rate and varieties (beej dar aur kism)",
+  "text": "- Utera sowing needs a higher seed rate than line sowing because some seed does not germinate. Field studies in Chhattisgarh found about 60 kg per hectare gave a good crop stand; confirm the rate for your variety with the KVK.\n- Use improved low-ODAP varieties such as Ratan, Prateek and Mahateora. Low ODAP means lower levels of the natural toxin, so the grain is safer to eat.\n- In Chhattisgarh plains, studies found sowing around late November gave higher yield than later sowing; delayed sowing reduced yield.",
+  "meta": {
+   "id": "teora",
+   "module": "crop",
+   "crop": "teora",
+   "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh",
+   "source_name": "Directorate of Pulses Development / Vikaspedia lathyrus package; Chhattisgarh field studies on low-ODAP lathyrus",
+   "source_url": "https://vikaspedia.in/agriculture/crop-production/package-of-practices/pulses/lathyrus",
+   "section": "Seed rate and varieties (beej dar aur kism)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "variety",
+    "sowing"
+   ]
+  }
+ },
+ {
+  "id": "teora#3",
+  "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh — Water and nutrients (paani aur khaad)",
+  "text": "- Teora usually grows without irrigation on residual moisture. If the soil becomes very dry before flowering and water is available, one light irrigation helps.\n- Avoid waterlogging.\n- Being a pulse, it fixes nitrogen; no or very little nitrogen fertilizer is needed. Phosphorus helps where the soil is poor; follow your Soil Health Card.",
+  "meta": {
+   "id": "teora",
+   "module": "crop",
+   "crop": "teora",
+   "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh",
+   "source_name": "Directorate of Pulses Development / Vikaspedia lathyrus package; Chhattisgarh field studies on low-ODAP lathyrus",
+   "source_url": "https://vikaspedia.in/agriculture/crop-production/package-of-practices/pulses/lathyrus",
+   "section": "Water and nutrients (paani aur khaad)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "irrigation",
+    "fertilizer"
+   ]
+  }
+ },
+ {
+  "id": "teora#4",
+  "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh — Pests and diseases (keet aur rog)",
+  "text": "- Watch for aphids (maahu) on shoot tips and for powdery mildew (white powder on leaves) in cool, humid weather.\n- Ask the KVK or RAEO before spraying anything; follow the label dose.",
+  "meta": {
+   "id": "teora",
+   "module": "crop",
+   "crop": "teora",
+   "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh",
+   "source_name": "Directorate of Pulses Development / Vikaspedia lathyrus package; Chhattisgarh field studies on low-ODAP lathyrus",
+   "source_url": "https://vikaspedia.in/agriculture/crop-production/package-of-practices/pulses/lathyrus",
+   "section": "Pests and diseases (keet aur rog)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "pest",
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "teora#5",
+  "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh — Harvest and use (katai aur upyog)",
+  "text": "- Harvest when most pods are dry and brown, usually February–March.\n- Teora is also a good green fodder and improves the soil for the next paddy crop.\n- Eat teora dal in moderation as part of a mixed diet; low-ODAP varieties are safer.",
+  "meta": {
+   "id": "teora",
+   "module": "crop",
+   "crop": "teora",
+   "title": "Teora / Lakhdi / Lathyrus (तिवड़ा / लाखड़ी) — utera cropping, Chhattisgarh",
+   "source_name": "Directorate of Pulses Development / Vikaspedia lathyrus package; Chhattisgarh field studies on low-ODAP lathyrus",
+   "source_url": "https://vikaspedia.in/agriculture/crop-production/package-of-practices/pulses/lathyrus",
+   "section": "Harvest and use (katai aur upyog)",
+   "stage": [
+    "maturity",
+    "post-harvest"
+   ],
+   "topic": [
+    "harvest"
+   ]
+  }
+ },
+ {
+  "id": "wheat#overview",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — overview",
+  "text": "Wheat is grown in Chhattisgarh in irrigated fields after paddy. Chhattisgarh is in the Central Zone (CZ) of ICAR-IIWBR. Sow in November for timely sowing. Do not grow varieties recommended for other zones, as they can be more prone to disease.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "wheat#1",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Sowing time and seed rate (buvai ka samay aur beej dar)",
+  "text": "- Timely sowing is in November. Sowing after December 25 is very late and reduces yield.\n- Late sown wheat: use about 125 kg seed per hectare (50 kg per acre), keep row spacing at about 17.5 cm and sow shallow.\n- Choose a variety suited to your sowing date; for very late sowing beyond December 25, IIWBR lists HD 3271, HI 1621 and HD 2851 for all zones. Ask your KVK for the best timely-sown variety for your district.\n- Seed treatment against loose smut: carboxin 75% WP at 2–2.5 g per kg seed, or tebuconazole 2% DS at 0.2 kg per 10 kg seed.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Sowing time and seed rate (buvai ka samay aur beej dar)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "sowing",
+    "variety"
+   ]
+  }
+ },
+ {
+  "id": "wheat#2",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Fertilizer (khaad)",
+  "text": "- IIWBR dose for late sown irrigated wheat in the Central Zone: 90:60:40 kg N:P:K per hectare.\n- Give one third of the nitrogen and all phosphorus and potash at sowing; give the remaining nitrogen in two equal splits at the first and second irrigation.\n- Finish nitrogen application by 40–45 days after sowing. Apply urea just before irrigation.\n- If the crop is yellow, do not add extra urea, and avoid urea in foggy or cloudy weather.\n- Best: follow the doses on your Soil Health Card.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Fertilizer (khaad)",
+   "stage": [
+    "sowing",
+    "vegetative"
+   ],
+   "topic": [
+    "fertilizer"
+   ]
+  }
+ },
+ {
+  "id": "wheat#3",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Irrigation (sinchai)",
+  "text": "- First irrigation 20–25 days after sowing, at crown root initiation (CRI, taaj jad avastha). This is the most important irrigation.\n- Other critical stages: tillering, jointing, flowering and grain filling (milk and dough stage). If water is limited, never miss CRI, then flowering and grain filling.\n- Check the weather forecast; skip irrigation if rain is forecast, to avoid waterlogging.\n- Irrigate lightly in strong wind to prevent lodging (fasal girna) after heading.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Irrigation (sinchai)",
+   "stage": [
+    "sowing",
+    "vegetative",
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "irrigation"
+   ]
+  }
+ },
+ {
+  "id": "wheat#4",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Weed control (kharpatwar)",
+  "text": "- Narrow leaf weeds (gulli danda / kanki): clodinafop 15 WP at 160 g per acre, or pinoxaden 5 EC at 400 ml per acre.\n- Broad leaf weeds: 2,4-D at 500 ml per acre, or metsulfuron 20 WP at 8 g per acre, or carfentrazone 40 DF at 20 g per acre.\n- Both types: sulfosulfuron 75 WG at 13.5 g per acre in 120–150 litres of water, before the first irrigation or 10–15 days after it.\n- Spray only in clear weather (no rain, fog or dew).",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Weed control (kharpatwar)",
+   "stage": [
+    "vegetative"
+   ],
+   "topic": [
+    "weed"
+   ]
+  }
+ },
+ {
+  "id": "wheat#5",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Yellow rust and other rusts (peela ratua, geru rog)",
+  "text": "- Symptom: yellow powdery stripes on leaves (yellow rust); brown round pustules (brown rust). Yellowing can also be from other causes, so confirm with a KVK or wheat expert.\n- Avoid excess nitrogen.\n- Control: propiconazole 25% EC at 200 ml in 200 litres of water per acre, or tebuconazole 25% EC at 200 ml in 200 litres of water per acre.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Yellow rust and other rusts (peela ratua, geru rog)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "wheat#6",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Termites (deemak)",
+  "text": "- Seed treatment: thiamethoxam 30% FS at 1.32 kg per 40 kg seed, or chlorpyrifos 20% EC at 3–4 ml per kg seed.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Termites (deemak)",
+   "stage": [
+    "sowing",
+    "vegetative"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "wheat#7",
+  "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone) — Heat stress at grain filling (garmi se nuksaan)",
+  "text": "- High temperatures (above about 35°C) during flowering and grain filling shrivel the grain. Late sowing increases this risk.\n- When heat is forecast at this stage, give a light irrigation, preferably in the evening, to keep the soil moist.",
+  "meta": {
+   "id": "wheat",
+   "module": "crop",
+   "crop": "wheat",
+   "title": "Gehun / Wheat (गेहूँ) — Chhattisgarh (Central Zone)",
+   "source_name": "ICAR-IIWBR Karnal advisories (Dec 2023, Dec 2024) and NCIPM/DPPQS IPM Package for Wheat",
+   "source_url": "https://iiwbr.org.in/",
+   "section": "Heat stress at grain filling (garmi se nuksaan)",
+   "stage": [
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "weather"
+   ]
+  }
+ },
+ {
+  "id": "kcc#overview",
+  "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड) — overview",
+  "text": "A revolving crop loan account from banks and cooperative societies for farming needs, at a low interest rate.",
+  "meta": {
+   "id": "kcc",
+   "module": "yojana",
+   "scheme": "kcc",
+   "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड)",
+   "source_url": "https://fasalrin.gov.in/",
+   "verified": "Kisan Rin portal (MISS); Union Budget 2025-26 (MISS limit ₹5 lakh); RBI collateral-free limit ₹2 lakh from 1 Jan 2025; bank KCC guidelines (PNB, Indian Bank)",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "kcc#1",
+  "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड) — Benefits (laabh)",
+  "text": "- Short-term loan for seeds, fertilizer, pesticides, labour and other cultivation costs, post-harvest expenses and some household needs, plus allied activities like animal husbandry and fisheries.\n- Under the Modified Interest Subvention Scheme (MISS), crop loans are given at 7% interest. Farmers who repay on time get an extra 3% prompt repayment incentive, so the effective rate is about 4% per year.\n- The loan limit eligible for this interest benefit was raised from ₹3 lakh to ₹5 lakh in the Union Budget 2025-26.\n- No collateral (girvi) is needed for loans up to ₹2 lakh (RBI, from 1 January 2025).\n- The card comes with a RuPay debit card for withdrawing money.",
+  "meta": {
+   "id": "kcc",
+   "module": "yojana",
+   "scheme": "kcc",
+   "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड)",
+   "source_url": "https://fasalrin.gov.in/",
+   "verified": "Kisan Rin portal (MISS); Union Budget 2025-26 (MISS limit ₹5 lakh); RBI collateral-free limit ₹2 lakh from 1 Jan 2025; bank KCC guidelines (PNB, Indian Bank)",
+   "section": "Benefits (laabh)"
+  }
+ },
+ {
+  "id": "kcc#2",
+  "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड) — Eligibility (kaun le sakta hai)",
+  "text": "- Owner cultivators (apni zameen par kheti karne wale), individually or jointly.\n- Tenant farmers, oral lessees and sharecroppers (bataidar / adhiya).\n- Self Help Groups (SHG) and Joint Liability Groups (JLG) of farmers, including tenant farmers.\n- Farmers in animal husbandry and fisheries can also get KCC.\n- The KCC account must be linked with Aadhaar to get the interest subvention.",
+  "meta": {
+   "id": "kcc",
+   "module": "yojana",
+   "scheme": "kcc",
+   "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड)",
+   "source_url": "https://fasalrin.gov.in/",
+   "verified": "Kisan Rin portal (MISS); Union Budget 2025-26 (MISS limit ₹5 lakh); RBI collateral-free limit ₹2 lakh from 1 Jan 2025; bank KCC guidelines (PNB, Indian Bank)",
+   "section": "Eligibility (kaun le sakta hai)"
+  }
+ },
+ {
+  "id": "kcc#3",
+  "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड) — Documents (zaroori dastavez)",
+  "text": "- Filled KCC application form.\n- Aadhaar card and a photo.\n- Land records (B1 / khasra), or for tenants a tenancy document or certificate as accepted by the bank.\n- Details of crops grown.",
+  "meta": {
+   "id": "kcc",
+   "module": "yojana",
+   "scheme": "kcc",
+   "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड)",
+   "source_url": "https://fasalrin.gov.in/",
+   "verified": "Kisan Rin portal (MISS); Union Budget 2025-26 (MISS limit ₹5 lakh); RBI collateral-free limit ₹2 lakh from 1 Jan 2025; bank KCC guidelines (PNB, Indian Bank)",
+   "section": "Documents (zaroori dastavez)"
+  }
+ },
+ {
+  "id": "kcc#4",
+  "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड) — How to apply (kaise banwayein)",
+  "text": "- At any bank branch (SBI, gramin bank, cooperative bank) or primary cooperative society (PACS / samiti).\n- The credit limit depends on the crop, the area and the scale of finance fixed by the district.",
+  "meta": {
+   "id": "kcc",
+   "module": "yojana",
+   "scheme": "kcc",
+   "title": "Kisan Credit Card, KCC (किसान क्रेडिट कार्ड)",
+   "source_url": "https://fasalrin.gov.in/",
+   "verified": "Kisan Rin portal (MISS); Union Budget 2025-26 (MISS limit ₹5 lakh); RBI collateral-free limit ₹2 lakh from 1 Jan 2025; bank KCC guidelines (PNB, Indian Bank)",
+   "section": "How to apply (kaise banwayein)"
+  }
+ },
+ {
+  "id": "krishak-unnati#overview",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — overview",
+  "text": "Chhattisgarh state government scheme that gives input assistance (aadan sahayata) to farmers on top of the central MSP. It is linked to paddy procurement (dhaan kharidi) through cooperative societies.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "krishak-unnati#1",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Benefits for paddy farmers (dhaan kisan ko kitna milta hai)",
+  "text": "- Paddy is bought at ₹3,100 per quintal in total. This is the central MSP plus the state's input assistance (the \"difference amount\" or antar raashi).\n- A farmer can sell up to 21 quintals of paddy per acre.\n- The MSP part is paid at the time of sale; the difference amount under Krishak Unnati Yojana is paid separately later by the state.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Benefits for paddy farmers (dhaan kisan ko kitna milta hai)"
+  }
+ },
+ {
+  "id": "krishak-unnati#2",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Benefits for other kharif crops (fasal badalne par sahayata)",
+  "text": "- From kharif 2026, farmers growing pulses (dalhan), oilseeds (tilhan), maize (makka), kodo, kutki, ragi or cotton, or farmers who shift from paddy to these kharif crops, get input assistance of ₹15,000 per acre.\n- Aim: crop diversification and saving water.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Benefits for other kharif crops (fasal badalne par sahayata)"
+  }
+ },
+ {
+  "id": "krishak-unnati#3",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Eligibility (kaun paatra hai)",
+  "text": "- The farmer must be registered on the state's Integrated Farmer Portal (Ekikrit Kisan Portal / kisan panjiyan).\n- Agristack (Farmer ID) enrolment is required.\n- The crop area is taken from the Digital Crop Survey (girdawari).\n- For paddy: the paddy must be sold at a cooperative society (sahkari samiti / upaarjan kendra) during the procurement season.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Eligibility (kaun paatra hai)"
+  }
+ },
+ {
+  "id": "krishak-unnati#4",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Dhaan kharidi 2026-27 (paddy procurement this season)",
+  "text": "- Procurement for kharif marketing year 2026-27 starts on 15 November 2026 at about 3,100 procurement centres (upaarjan kendra), including 360 new ones.\n- Farmers registered last year who have an Agristack ID do not need to register again.\n- Farmers with Agristack registration do not need to show the rin pustika (loan book) separately at the society.\n- Biometric verification of the farmer is done at the procurement centre.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Dhaan kharidi 2026-27 (paddy procurement this season)"
+  }
+ },
+ {
+  "id": "krishak-unnati#5",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Token for selling paddy (token kaise milega)",
+  "text": "- Tokens are booked on the \"Tuhar Token\" mobile app (Token Tuhar Haath) from the Play Store, with OTP-based registration, 24 hours a day. Token booking opens a few days before procurement starts.\n- 70% of each society's daily tokens are issued through the app and 30% at the society.\n- Number of tokens by land: up to 2 acres → 1 token; more than 2 and up to 10 acres → 2 tokens; more than 10 acres → 3 tokens.\n- While booking, the farmer can see available dates and the society's daily purchase limit.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Token for selling paddy (token kaise milega)"
+  }
+ },
+ {
+  "id": "krishak-unnati#6",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Documents (zaroori dastavez)",
+  "text": "- Aadhaar card and mobile number.\n- Bank account details (passbook).\n- Land records (B1 / khasra) and Agristack Farmer ID.\n- Registration on the Integrated Farmer Portal.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Documents (zaroori dastavez)"
+  }
+ },
+ {
+  "id": "krishak-unnati#7",
+  "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी) — Where to get help",
+  "text": "- Your primary agricultural cooperative society (PACS / sahkari samiti), the patwari, RAEO or the district agriculture office.",
+  "meta": {
+   "id": "krishak-unnati",
+   "module": "yojana",
+   "scheme": "krishak-unnati",
+   "title": "Krishak Unnati Yojana and Dhaan Kharidi, Chhattisgarh (कृषक उन्नति योजना एवं धान खरीदी)",
+   "source_url": "https://kisan.cg.nic.in/",
+   "verified": "Chhattisgarh govt announcements as reported by PTI/Indian Express (9 Jun 2026), Times of India (Feb 2026), TractorJunction (28 Oct 2026). Confirm details at your cooperative society (samiti).",
+   "section": "Where to get help"
+  }
+ },
+ {
+  "id": "pm-kisan#overview",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — overview",
+  "text": "Central government income support scheme for landholding farmer families. Also called PM Kisan, kisan samman nidhi, 6000 rupaye wali yojana.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "pm-kisan#1",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — Benefits (laabh, kitna paisa milta hai)",
+  "text": "- ₹6,000 per year per landholding farmer family.\n- Paid in three equal instalments of ₹2,000 each (kist), every four months.\n- Money is sent directly to the farmer's bank account through DBT (Direct Benefit Transfer). The bank account must be Aadhaar-seeded.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "Benefits (laabh, kitna paisa milta hai)"
+  }
+ },
+ {
+  "id": "pm-kisan#2",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — Eligibility (kaun paatra hai)",
+  "text": "- All landholding farmer families whose names are in the state land records (bhu-abhilekh, khasra/B1) are eligible. The original 2-hectare limit was removed in June 2019, so land size does not matter.\n- A farmer family means husband, wife and minor children.\n- Tenant farmers and sharecroppers (adhiya/batai) who do not own land in their name are NOT eligible.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "Eligibility (kaun paatra hai)"
+  }
+ },
+ {
+  "id": "pm-kisan#3",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — Exclusions (kaun paatra nahi hai)",
+  "text": "The following are excluded even if they own land:\n- All institutional landholders.\n- Present or former holders of constitutional posts; present or former ministers, MPs, MLAs, mayors and district panchayat chairpersons.\n- Serving or retired officers and employees of central/state government, PSUs and government autonomous bodies (Multi Tasking Staff, Class IV and Group D employees are NOT excluded).\n- Retired pensioners whose monthly pension is ₹10,000 or more (except Multi Tasking Staff, Class IV and Group D).\n- Anyone who paid income tax in the last assessment year (income tax bharne wale).\n- Registered professionals practising their profession: doctors, engineers, lawyers, chartered accountants and architects.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "Exclusions (kaun paatra nahi hai)"
+  }
+ },
+ {
+  "id": "pm-kisan#4",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — Documents (zaroori dastavez)",
+  "text": "- Aadhaar card (mandatory).\n- Land records in the farmer's name (khasra / B1 / khatauni).\n- Bank account linked (seeded) with Aadhaar.\n- Mobile number linked with Aadhaar for OTP.\n- e-KYC is mandatory to keep receiving instalments. It can be done by OTP on the PM-Kisan portal or app, by biometric at a CSC (Common Service Centre / lok seva kendra), or by face authentication on the PM-Kisan mobile app.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "Documents (zaroori dastavez)"
+  }
+ },
+ {
+  "id": "pm-kisan#5",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — How to apply (aavedan kaise karein)",
+  "text": "- Self registration on pmkisan.gov.in under \"Farmers Corner → New Farmer Registration\".\n- Or at the nearest CSC / lok seva kendra.\n- Or through the patwari, RAEO (gram sevak) or the village agriculture office, who verify land records.\n- Check status and instalments with \"Know Your Status\" on pmkisan.gov.in using the registration number or mobile number.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "How to apply (aavedan kaise karein)"
+  }
+ },
+ {
+  "id": "pm-kisan#6",
+  "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि) — Common problems (kist nahi aayi to kya karein)",
+  "text": "- Instalment stopped: usually e-KYC is pending, Aadhaar is not seeded with the bank account, or land record verification is pending. Complete e-KYC and check bank Aadhaar seeding.\n- Helpline: PM-Kisan helpline 155261 or 011-24300606, toll-free 1800-115-5266.",
+  "meta": {
+   "id": "pm-kisan",
+   "module": "yojana",
+   "scheme": "pm-kisan",
+   "title": "PM-Kisan Samman Nidhi (पीएम किसान सम्मान निधि)",
+   "source_url": "https://pmkisan.gov.in/",
+   "verified": "pmkisan.gov.in Revised Operational Guidelines and FAQ; PM-KISAN letter to states 07.06.2019",
+   "section": "Common problems (kist nahi aayi to kya karein)"
+  }
+ },
+ {
+  "id": "pmfby#overview",
+  "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना) — overview",
+  "text": "Central crop insurance scheme. It pays farmers for crop loss from natural calamities, pests and diseases. Also called fasal bima, crop insurance.",
+  "meta": {
+   "id": "pmfby",
+   "module": "yojana",
+   "scheme": "pmfby",
+   "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना)",
+   "source_url": "https://pmfby.gov.in/",
+   "verified": "pmfby.gov.in PMFBY features and press note; enrolment voluntary for all farmers since kharif 2020",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "pmfby#1",
+  "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना) — Premium (kitna premium dena hota hai)",
+  "text": "- Kharif food and oilseed crops (e.g. paddy/dhaan): farmer pays at most 2% of the sum insured.\n- Rabi food and oilseed crops (e.g. wheat/gehun, chana, teora, mustard): farmer pays at most 1.5% of the sum insured.\n- Annual commercial and horticultural crops: farmer pays at most 5%.\n- The rest of the premium is paid by the central and state governments.",
+  "meta": {
+   "id": "pmfby",
+   "module": "yojana",
+   "scheme": "pmfby",
+   "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना)",
+   "source_url": "https://pmfby.gov.in/",
+   "verified": "pmfby.gov.in PMFBY features and press note; enrolment voluntary for all farmers since kharif 2020",
+   "section": "Premium (kitna premium dena hota hai)"
+  }
+ },
+ {
+  "id": "pmfby#2",
+  "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना) — What is covered (kis nuksaan par paisa milta hai)",
+  "text": "- Yield loss from drought, flood, dry spells, pests and diseases, as per the notified area crop cutting experiments.\n- Prevented sowing: when bad weather stops sowing.\n- Localised calamities such as hailstorm, landslide, inundation and cloudburst, assessed for the individual farm.\n- Post-harvest losses from cyclone or unseasonal rain for crops left drying in the field, up to 14 days after harvest.\n- For localised and post-harvest losses, inform within 72 hours through the Crop Insurance app, the Krishi Rakshak helpline 14447 (toll-free), the insurance company, the bank or the agriculture office. PMFBY WhatsApp chatbot: 7065514447.",
+  "meta": {
+   "id": "pmfby",
+   "module": "yojana",
+   "scheme": "pmfby",
+   "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना)",
+   "source_url": "https://pmfby.gov.in/",
+   "verified": "pmfby.gov.in PMFBY features and press note; enrolment voluntary for all farmers since kharif 2020",
+   "section": "What is covered (kis nuksaan par paisa milta hai)"
+  }
+ },
+ {
+  "id": "pmfby#3",
+  "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना) — Eligibility (kaun le sakta hai)",
+  "text": "- Any farmer, including sharecroppers and tenant farmers, growing a notified crop in a notified area.\n- Since kharif 2020 enrolment is voluntary for all farmers, including those with crop loans (loanee farmers). A loanee farmer who does not want insurance must give a written opt-out to the bank before the cut-off date.\n- Which crops and areas are notified differs by district and season. Check with the bank, CSC or agriculture office.",
+  "meta": {
+   "id": "pmfby",
+   "module": "yojana",
+   "scheme": "pmfby",
+   "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना)",
+   "source_url": "https://pmfby.gov.in/",
+   "verified": "pmfby.gov.in PMFBY features and press note; enrolment voluntary for all farmers since kharif 2020",
+   "section": "Eligibility (kaun le sakta hai)"
+  }
+ },
+ {
+  "id": "pmfby#4",
+  "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना) — Documents (zaroori dastavez)",
+  "text": "- Aadhaar card.\n- Bank passbook.\n- Land records (B1 / khasra) or, for tenants, the tenancy/sharecropping agreement as accepted by the state.\n- Sowing declaration (bowni pramaan patra) showing the crop sown.",
+  "meta": {
+   "id": "pmfby",
+   "module": "yojana",
+   "scheme": "pmfby",
+   "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना)",
+   "source_url": "https://pmfby.gov.in/",
+   "verified": "pmfby.gov.in PMFBY features and press note; enrolment voluntary for all farmers since kharif 2020",
+   "section": "Documents (zaroori dastavez)"
+  }
+ },
+ {
+  "id": "pmfby#5",
+  "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना) — How to apply (kaise judein)",
+  "text": "- Through your bank branch or cooperative society (for loanee farmers, usually automatic unless you opt out).\n- At a CSC / lok seva kendra.\n- Online at pmfby.gov.in or the Crop Insurance mobile app.\n- Each season has a cut-off date for enrolment. For rabi it is usually in December; check the exact date for your district.",
+  "meta": {
+   "id": "pmfby",
+   "module": "yojana",
+   "scheme": "pmfby",
+   "title": "PM Fasal Bima Yojana (प्रधानमंत्री फसल बीमा योजना)",
+   "source_url": "https://pmfby.gov.in/",
+   "verified": "pmfby.gov.in PMFBY features and press note; enrolment voluntary for all farmers since kharif 2020",
+   "section": "How to apply (kaise judein)"
+  }
+ },
+ {
+  "id": "soil-health-card#overview",
+  "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड) — overview",
+  "text": "Central scheme that tests your field's soil for free and gives a card with fertilizer recommendations. Also called mitti jaanch, soil test card.",
+  "meta": {
+   "id": "soil-health-card",
+   "module": "yojana",
+   "scheme": "soil-health-card",
+   "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड)",
+   "source_url": "https://soilhealth.dac.gov.in/",
+   "verified": "PIB backgrounders Feb 2025 and Aug 2025 on the Soil Health Card scheme",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "soil-health-card#1",
+  "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड) — Benefits (laabh)",
+  "text": "- Free soil test of your field.\n- The card shows the status of 12 soil parameters: nitrogen (N), phosphorus (P), potassium (K), sulphur (S); zinc, iron, copper, manganese, boron; pH, electrical conductivity (EC) and organic carbon (OC).\n- It gives fertilizer recommendations and soil amendments (e.g. lime for acidic soil, gypsum) for your field and crop. This helps avoid excess urea/DAP and saves money.\n- Cards are issued in Hindi and other major languages.",
+  "meta": {
+   "id": "soil-health-card",
+   "module": "yojana",
+   "scheme": "soil-health-card",
+   "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड)",
+   "source_url": "https://soilhealth.dac.gov.in/",
+   "verified": "PIB backgrounders Feb 2025 and Aug 2025 on the Soil Health Card scheme",
+   "section": "Benefits (laabh)"
+  }
+ },
+ {
+  "id": "soil-health-card#2",
+  "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड) — Eligibility (kaun le sakta hai)",
+  "text": "- All farmers are eligible. There is no land size or income condition.",
+  "meta": {
+   "id": "soil-health-card",
+   "module": "yojana",
+   "scheme": "soil-health-card",
+   "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड)",
+   "source_url": "https://soilhealth.dac.gov.in/",
+   "verified": "PIB backgrounders Feb 2025 and Aug 2025 on the Soil Health Card scheme",
+   "section": "Eligibility (kaun le sakta hai)"
+  }
+ },
+ {
+  "id": "soil-health-card#3",
+  "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड) — How to get it (kaise milega)",
+  "text": "- Soil samples are usually taken twice a year, after the kharif and rabi harvest, or when there is no standing crop in the field.\n- Contact your RAEO (gram sevak), the agriculture department, the nearest soil testing lab or Krishi Vigyan Kendra (KVK) for sample collection.\n- Cards can be viewed or downloaded on soilhealth.dac.gov.in using your mobile number or sample details.\n- Good time in Chhattisgarh: after the paddy harvest in November–December, before preparing the field for rabi.",
+  "meta": {
+   "id": "soil-health-card",
+   "module": "yojana",
+   "scheme": "soil-health-card",
+   "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड)",
+   "source_url": "https://soilhealth.dac.gov.in/",
+   "verified": "PIB backgrounders Feb 2025 and Aug 2025 on the Soil Health Card scheme",
+   "section": "How to get it (kaise milega)"
+  }
+ },
+ {
+  "id": "soil-health-card#4",
+  "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड) — How to take a soil sample (namuna kaise lein)",
+  "text": "- Take soil from 8–10 spots in the field in a V shape, 15 cm (about 6 inches) deep, mix it, and keep about half a kilo.\n- Do not take samples near bunds (med), trees, compost pits or right after applying fertilizer.\n- Label the bag with your name, khasra number and village.",
+  "meta": {
+   "id": "soil-health-card",
+   "module": "yojana",
+   "scheme": "soil-health-card",
+   "title": "Soil Health Card (मृदा स्वास्थ्य कार्ड)",
+   "source_url": "https://soilhealth.dac.gov.in/",
+   "verified": "PIB backgrounders Feb 2025 and Aug 2025 on the Soil Health Card scheme",
+   "section": "How to take a soil sample (namuna kaise lein)"
+  }
+ }
+]
