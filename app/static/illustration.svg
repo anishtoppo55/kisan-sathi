@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-labelledby="t d">
+  <title id="t">Kisan Saathi illustration</title>
+  <desc id="d">Isometric line art: a farmer with a phone in a paddy field, a rain cloud, a voice chat bubble and a scheme document.</desc>
+  <defs>
+    <pattern id="dots" width="5" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1" fill="#7C5CFA" opacity=".55"/>
+    </pattern>
+    <pattern id="dots-light" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r=".9" fill="#7C5CFA" opacity=".25"/>
+    </pattern>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EEE9FF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke="#5B3FD6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- decorations -->
+    <path d="M30 330 q8 -8 16 0 t16 0 t16 0" opacity=".7"/>
+    <path d="M400 360 q8 -8 16 0 t16 0" opacity=".7"/>
+    <path d="M360 40 l60 -22" stroke-dasharray="2 6" opacity=".7"/>
+    <path d="M40 240 l50 -20" stroke-dasharray="2 6" opacity=".7"/>
+    <path d="M430 230 l30 -14" opacity=".6"/>
+
+    <!-- small cubes -->
+    <g>
+      <path d="M420 176 l12 6 -12 6 -12 -6z" fill="#EEE9FF"/>
+      <path d="M408 182 l12 6 v14 l-12 -6z" fill="url(#dots)"/>
+      <path d="M432 182 v14 l-12 6 v-14z" fill="#C9BCFF"/>
+    </g>
+    <g>
+      <path d="M62 178 l9 4.5 -9 4.5 -9 -4.5z" fill="#EEE9FF"/>
+      <path d="M53 182.5 l9 4.5 v10 l-9 -4.5z" fill="url(#dots)"/>
+      <path d="M71 182.5 v10 l-9 4.5 v-10z" fill="#C9BCFF"/>
+    </g>
+
+    <!-- field platform -->
+    <path d="M240 200 L400 280 L240 360 L80 280 Z" fill="#FFFFFF"/>
+    <path d="M240 200 L400 280 L240 360 L80 280 Z" fill="url(#dots-light)"/>
+    <path d="M80 280 L240 360 L240 374 L80 294 Z" fill="url(#dots)"/>
+    <path d="M240 360 L400 280 L400 294 L240 374 Z" fill="#C9BCFF"/>
+
+    <!-- furrows -->
+    <path d="M147 250 L224 288" opacity=".55"/>
+    <path d="M123 262 L200 300" opacity=".55"/>
+    <path d="M99 274 L176 312" opacity=".55"/>
+
+    <!-- paddy tufts -->
+    <g stroke="#7C5CFA">
+      <path d="M160 256 l-5 -14 M160 256 l0 -17 M160 256 l5 -14"/>
+      <path d="M184 268 l-5 -14 M184 268 l0 -17 M184 268 l5 -14"/>
+      <path d="M208 280 l-5 -14 M208 280 l0 -17 M208 280 l5 -14"/>
+      <path d="M136 268 l-5 -14 M136 268 l0 -17 M136 268 l5 -14"/>
+      <path d="M160 280 l-5 -14 M160 280 l0 -17 M160 280 l5 -14"/>
+      <path d="M184 292 l-5 -14 M184 292 l0 -17 M184 292 l5 -14"/>
+      <path d="M112 280 l-5 -14 M112 280 l0 -17 M112 280 l5 -14"/>
+      <path d="M136 292 l-5 -14 M136 292 l0 -17 M136 292 l5 -14"/>
+      <path d="M160 304 l-5 -14 M160 304 l0 -17 M160 304 l5 -14"/>
+      <circle cx="160" cy="239" r="1.6" fill="#7C5CFA"/>
+      <circle cx="184" cy="251" r="1.6" fill="#7C5CFA"/>
+      <circle cx="136" cy="275" r="1.6" fill="#7C5CFA"/>
+      <circle cx="160" cy="287" r="1.6" fill="#7C5CFA"/>
+    </g>
+
+    <!-- scheme document lying on the field -->
+    <path d="M304 284 L344 304 L304 324 L264 304 Z" fill="#C9BCFF"/>
+    <path d="M304 280 L344 300 L304 320 L264 300 Z" fill="#FFFFFF"/>
+    <path d="M304 288 L328 300"/>
+    <path d="M293 293.6 L317 305.6"/>
+    <path d="M281.6 299.2 L302 309.6"/>
+    <path d="M318 290 l4 4 8 -6" stroke="#7C5CFA" stroke-width="2.4"/>
+
+    <!-- phone -->
+    <path d="M292 234 L302 239 L302 119 L292 114 Z" fill="url(#dots)"/>
+    <path d="M236 142 L292 114 L302 119 L246 147 Z" fill="#C9BCFF"/>
+    <path d="M236 262 L292 234 L292 114 L236 142 Z" fill="#FFFFFF"/>
+    <path d="M244 250 L284 230 L284 126 L244 146 Z" fill="url(#screen)"/>
+    <path d="M250 162 L278 148"/>
+    <path d="M250 172 L270 162"/>
+    <path d="M250 182 L276 169" opacity=".6"/>
+    <circle cx="264" cy="210" r="11" fill="#7C5CFA" stroke="#7C5CFA"/>
+    <rect x="261.5" y="202" width="5" height="9" rx="2.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M258.5 208.5 a5.5 5.5 0 0 0 11 0 M264 214 v3" stroke="#FFFFFF" stroke-width="1.6"/>
+    <path d="M247 222 q4 -6 8 0 t8 0 t8 0 t8 0" stroke="#7C5CFA" opacity=".8"/>
+
+    <!-- chat bubble -->
+    <g transform="translate(316 104) skewY(-26.565)">
+      <rect x="6" y="6" width="78" height="40" rx="7" fill="#C9BCFF"/>
+      <rect x="0" y="0" width="78" height="40" rx="7" fill="#FFFFFF"/>
+      <path d="M12 40 l-6 12 14 -12" fill="#FFFFFF"/>
+      <path d="M12 14 h44 M12 25 h30"/>
+      <circle cx="64" cy="25" r="3" fill="#7C5CFA" stroke="none"/>
+    </g>
+
+    <!-- rain cloud -->
+    <path d="M92 132 a18 18 0 0 1 14 -28 a24 24 0 0 1 44 2 a16 16 0 0 1 10 26 z" fill="#EEE9FF"/>
+    <path d="M100 132 h52" opacity=".5"/>
+    <g stroke="#7C5CFA">
+      <path d="M104 146 l-4 12"/>
+      <path d="M122 146 l-4 12"/>
+      <path d="M140 146 l-4 12"/>
+      <path d="M113 166 l-3 9"/>
+      <path d="M131 166 l-3 9"/>
+    </g>
+
+    <!-- farmer -->
+    <g>
+      <path d="M194 262 l3 -26 M206 262 l-3 -26"/>
+      <path d="M188 238 q12 6 24 0 l-2 -30 q-10 -6 -20 0 z" fill="#FFFFFF"/>
+      <path d="M190 210 l-8 22" />
+      <path d="M210 212 l12 -10 l4 -14"/>
+      <rect x="221" y="180" width="8" height="13" rx="2" fill="#7C5CFA" stroke="#7C5CFA" transform="rotate(12 225 186)"/>
+      <circle cx="200" cy="198" r="9" fill="#FFFFFF"/>
+      <path d="M190 194 q10 -12 20 0 q-10 -4 -20 0z" fill="#C9BCFF"/>
+      <path d="M210 194 l7 3" />
+    </g>
+  </g>
+</svg>
