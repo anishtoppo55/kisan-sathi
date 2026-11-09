@@ -9,7 +9,7 @@ Built for the Gnani AI *Great Indian AI Internship Challenge*.
 | **Crop Saathi** | Stage-specific advice for paddy, chana, wheat and teora (pests, diseases, irrigation, fertilizer), with doses taken only from ICAR/NCIPM sources. |
 | **Mausam Saathi** | 7-day forecast for the farmer's district with rule-based advisories (postpone irrigation before rain, frost, heat, disease weather). |
 
-**Stack:** Gnani **Prisma v3.0** (speech-to-text, `indic-auto`) · Gnani **Timbre v3.0 / v2.5** (text-to-speech) ·
+**Stack:** Gnani **Prisma v3.0** (speech-to-text, `indic-auto`) · Gnani **Timbre v3.0** (text-to-speech, male voice Yashraj; v2.5 Deepak/Pranav fallback, set `TTS_VOICE` in `.env` to change) ·
 Gemini (routing, answers, embeddings, Google Search fallback) · FastAPI · Open-Meteo · plain HTML/JS + Pico CSS + Chart.js.
 
 ```
@@ -49,6 +49,10 @@ Prefix with `env -u PYTHONPATH` if a system PYTHONPATH (e.g. ROS) is set.
 - `kb/crops/*.md`: per-crop guides; each `##` section carries `<!-- stage: …; topic: … -->` tags used for filtering.
 
 Every advisory tells the farmer to confirm with the local KVK / RAEO. Web-search answers are labelled and list their sources.
+
+## Language
+The **हिंदी | Hinglish** toggle (top bar) switches the page text and the reply language for chat, voice and the eligibility re-check.
+Page strings live in the `STRINGS` table in `app/static/app.js` (`data-i18n` keys in `index.html`); a test checks both languages have every key.
 
 ## Deploy
 See [deploy/README.md](deploy/README.md) (AWS Lightsail + Caddy HTTPS on `<ip>.sslip.io`).

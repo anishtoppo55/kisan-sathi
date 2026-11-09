@@ -75,3 +75,25 @@ def test_voice_rejects_too_large(client):
 def test_chat_speaks_reply(client, fakes):
     body = client.post("/api/chat", json={"message": "PM-Kisan kya hai?"}).json()
     assert body["audio_b64"] and fakes["tts"].calls == [("Jawab", "hi-en")]
+
+
+def test_voice_lang_toggle_overrides_detection(client, fakes, webm_audio):
+    # Farmer speaks Hinglish (Prisma says en-IN) but the UI toggle is Hindi -> reply in Devanagari Hindi
+    fakes["stt"] = FakeSTT(Transcript("PM Kisan ke documents kya hain", "en-IN"))
+    r = client.post("/api/voice", files={"audio": ("r.webm", webm_audio, "audio/webm")},
+                    data={"session_id": "s1", "lang": "hi-IN"})
+    assert r.json()["lang"] == "hi-IN"
+    assert fakes["pipeline"].calls[-1][1] == "hi-IN" and fakes["tts"].calls[-1][1] == "hi-IN"
+
+
+def test_voice_without_lang_keeps_detection_and_ignores_bad_lang(client, fakes, webm_audio):
+    fakes["stt"] = FakeSTT(Transcript("नमस्ते", "hi-IN"))
+    for extra in ({}, {"lang": "ta-IN"}):
+        r = client.post("/api/voice", files={"audio": ("r.webm", webm_audio, "audio/webm")}, data={"session_id": "s", **extra})
+        assert r.json()["lang"] == "hi-IN"
+
+
+def test_voice_empty_transcript_in_toggle_language(client, fakes, webm_audio):
+    fakes["stt"] = FakeSTT(Transcript("", "hi-IN"))
+    body = client.post("/api/voice", files={"audio": ("r.webm", webm_audio, "audio/webm")}, data={"lang": "hi-IN"}).json()
+    assert body["lang"] == "hi-IN" and "दोबारा" in body["reply_text"]

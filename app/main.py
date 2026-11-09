@@ -28,6 +28,7 @@ STATIC_DIR = Path(__file__).parent / "static"
 INDEX_DIR = Path(__file__).resolve().parents[1] / "kb" / "index"
 DEVANAGARI = re.compile(r"[\u0900-\u097F]")
 MAX_AUDIO_BYTES = 2 * 1024 * 1024  # ~25 s of opus is far below this
+UI_LANGS = ("hi-IN", "hi-en")  # languages the UI toggle can request
 
 
 @asynccontextmanager
@@ -36,7 +37,7 @@ async def lifespan(app: FastAPI):
     app.state.http = httpx.AsyncClient()
     key = settings.gnani_api_key.get_secret_value() if settings.gnani_api_key else ""
     app.state.stt = GnaniSTT(key, app.state.http)
-    app.state.tts = GnaniTTS(key, app.state.http)
+    app.state.tts = GnaniTTS(key, app.state.http, voice=settings.tts_voice)
     gkey = settings.gemini_api_key.get_secret_value() if settings.gemini_api_key else ""
     gemini = GeminiClient(gkey)
     try:
@@ -128,10 +129,14 @@ async def chat(
 async def voice(
     audio: UploadFile = File(...),
     session_id: str | None = Form(default=None, max_length=64),
+    lang: str | None = Form(default=None, max_length=10),
     stt: GnaniSTT = Depends(get_stt),
     tts: GnaniTTS = Depends(get_tts),
     pipeline: Pipeline = Depends(get_pipeline),
 ) -> AssistantResponse:
+    """`lang` (hi-IN | hi-en) is the UI language toggle; when set, the reply uses it
+    regardless of what Prisma detected. Without it, the reply follows the speech."""
+    forced = lang if lang in UI_LANGS else None
     raw = await audio.read(MAX_AUDIO_BYTES + 1)
     if not raw:
         raise HTTPException(422, "Audio file is empty")
@@ -148,12 +153,11 @@ async def voice(
         log.error("STT failed: %s", e)
         raise HTTPException(502, "Speech recognition failed. Please try again or type your question.")
     if not t.text:
-        return AssistantResponse(
-            transcript="", lang="hi-IN",
-            reply_text="Maaf kijiye, aawaz saaf sunai nahi di. Kripya dobara boliye.",
-        )
+        retry = {"hi-IN": "माफ़ कीजिए, आवाज़ साफ़ सुनाई नहीं दी। कृपया दोबारा बोलिए।",
+                 "hi-en": "Maaf kijiye, aawaz saaf sunai nahi di. Kripya dobara boliye."}
+        return AssistantResponse(transcript="", lang=forced or "hi-en", reply_text=retry[forced or "hi-en"])
     text = t.text[:MAX_MESSAGE_CHARS]
-    lang = reply_lang(t.lang, text)
+    lang = forced or reply_lang(t.lang, text)
     result = await pipeline.handle(text, lang, session_id)
     return to_response(text, lang, result, await speak_b64(tts, result.reply_text, lang))
 

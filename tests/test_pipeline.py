@@ -1,3 +1,5 @@
+import json
+
 import numpy as np
 import pytest
 
@@ -13,7 +15,8 @@ SCHEMES = load_schemes()
 class FakeGemini:
     """Scriptable Gemini: route JSON, profile JSON, answers, embeddings and search."""
 
-    def __init__(self, route=None, answers=None, profile=None, search=None, error=None, route_error=False):
+    def __init__(self, route=None, answers=None, profile=None, search=None, error=None, route_error=False, l10n=None):
+        self.l10n = l10n
         self.route = route or {"intent": "general", "search_query": ""}
         self.answers = list(answers or ["ok"])
         self.profile = profile or {}
@@ -34,6 +37,10 @@ class FakeGemini:
             if self.route_error:
                 raise GeminiError("router down")
             return dict(self.route)
+        if "lines" in schema.get("properties", {}):
+            if isinstance(self.l10n, Exception):
+                raise self.l10n
+            return {"lines": self.l10n(json.loads(user_text))} if callable(self.l10n) else {}
         return dict(self.profile)
 
     async def embed(self, texts):
@@ -182,6 +189,42 @@ async def test_crop_dose_comes_from_retrieved_text():
     r = await pipeline(g).handle("bhura maahu", "hi-en", "s")
     ctx = g.calls["generate"][0]["system"]
     assert "60-75 ml" in ctx and "60-75 ml" in r.reply_text
+
+
+# ---------- crop card localization ----------
+
+BPH_ROUTE = {"intent": "crop", "crop": "paddy", "search_query": "bph"}
+
+
+async def test_crop_card_translated_to_hindi_keeping_doses():
+    def to_hindi(lines):
+        return ["भूरा माहू" if i == 0 else "इमिडाक्लोप्रिड 30.5% SC 60-75 ml प्रति हेक्टेयर छिड़कें।" for i, _ in enumerate(lines)]
+    g = FakeGemini(route=BPH_ROUTE, answers=["जवाब। KVK से पुष्टि करें।"], l10n=to_hindi)
+    p = pipeline(g)
+    r = await p.handle("भूरा माहू", "hi-IN", "s")
+    d = r.cards[0]["data"]
+    assert d["title"] == "भूरा माहू" and d["actions"][0].startswith("इमिडाक्लोप्रिड") and "60-75 ml" in d["actions"][0]
+    assert d["crop"] == "धान"
+    l10n_calls = [c for c in g.calls["json"] if "Translate each line" in c["system"]]
+    assert "Devanagari" in l10n_calls[0]["system"] and "60-75 ml" in l10n_calls[0]["user"]
+    # cached: a second identical question does not translate again
+    g.answers = ["जवाब। KVK"]
+    await p.handle("भूरा माहू", "hi-IN", "s")
+    assert len([c for c in g.calls["json"] if "Translate each line" in c["system"]]) == 1
+
+
+async def test_crop_card_keeps_english_when_translation_fails_or_changes_numbers():
+    for bad in (GeminiError("429"), lambda lines: ["x"] * (len(lines) + 1), lambda lines: ["इमिडाक्लोप्रिड 50 ml"] * len(lines)):
+        g = FakeGemini(route=BPH_ROUTE, answers=["ok KVK"], l10n=bad)
+        r = await pipeline(g).handle("bph", "hi-en", "s")
+        assert r.cards[0]["data"]["actions"][0].startswith("Spray imidacloprid 30.5% SC at 60-75 ml")
+
+
+async def test_crop_card_hinglish_prompt_asks_roman_script():
+    g = FakeGemini(route=BPH_ROUTE, answers=["ok KVK"], l10n=lambda lines: lines)
+    await pipeline(g).handle("bph", "hi-en", "s")
+    sys_prompt = next(c["system"] for c in g.calls["json"] if "Translate each line" in c["system"])
+    assert "Roman" in sys_prompt
 
 
 # ---------- general / errors / history ----------

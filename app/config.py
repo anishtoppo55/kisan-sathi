@@ -18,6 +18,7 @@ class Settings(BaseSettings):
 
     rate_limit_per_minute: int = 20  # /api/* requests per client IP
     kb_score_threshold: float = 0.70  # below this top retrieval score, use the web fallback
+    tts_voice: str = "Yashraj"  # Timbre v3.0 voice (male options: Avinash, Shubham, Prakash, Devansh, Yashraj, Harshad)
 
 
 @lru_cache

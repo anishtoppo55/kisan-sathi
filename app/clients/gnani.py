@@ -103,24 +103,31 @@ class GnaniSTT:
 
 
 # (model, voice, language) attempts per reply language, in order.
-# Timbre v3.0's catalog lists 10 languages but not hi-en, so Hinglish goes to the
-# dedicated v2.5 Hinglish voice first.
-VOICE_PLAN: dict[str, list[tuple[str, str, str]]] = {
-    "hi-IN": [("timbre-v3.0", "Shivani", "hi-IN"), ("timbre-v2.5", "Nalini", "hi-IN")],
-    "hi-en": [("timbre-v2.5", "Poorvi", "hi-en"), ("timbre-v3.0", "Shivani", "auto")],
-    "en-IN": [("timbre-v3.0", "Shivani", "en-IN"), ("timbre-v2.5", "Kaveri", "en-IN")],
-}
+# Male voices. Timbre v3.0 voices speak every language; Yashraj ("warm narrative voice")
+# tested as clear as the other male v3.0 voices through a Prisma round trip and suits an
+# advisory assistant. Roman-script Hinglish uses language "auto" (scored best in testing).
+# Fallbacks are male Timbre v2.5 voices: Deepak (Hindi, also reads Roman Hindi with hi-IN)
+# and Pranav (English).
+DEFAULT_V3_VOICE = "Yashraj"
+V3_MALE_VOICES = {"Avinash", "Shubham", "Prakash", "Devansh", "Yashraj", "Harshad"}
 
 
-def voice_plan(lang: str) -> list[tuple[str, str, str]]:
-    return VOICE_PLAN.get(lang, VOICE_PLAN["hi-IN"])
+def voice_plan(lang: str, v3_voice: str = DEFAULT_V3_VOICE) -> list[tuple[str, str, str]]:
+    plans = {
+        "hi-IN": [("timbre-v3.0", v3_voice, "hi-IN"), ("timbre-v2.5", "Deepak", "hi-IN")],
+        "hi-en": [("timbre-v3.0", v3_voice, "auto"), ("timbre-v2.5", "Deepak", "hi-IN")],
+        "en-IN": [("timbre-v3.0", v3_voice, "en-IN"), ("timbre-v2.5", "Pranav", "en-IN")],
+    }
+    return plans.get(lang, plans["hi-IN"])
 
 
 class GnaniTTS:
-    def __init__(self, api_key: str, client: httpx.AsyncClient, cache_size: int = 256, speed: float = 1.0):
+    def __init__(self, api_key: str, client: httpx.AsyncClient, cache_size: int = 256, speed: float = 1.0,
+                 voice: str = DEFAULT_V3_VOICE):
         self.api_key = api_key
         self.client = client
         self.speed = speed
+        self.voice = voice
         self._cache: OrderedDict[str, bytes] = OrderedDict()
         self._cache_size = cache_size
 
@@ -166,7 +173,7 @@ class GnaniTTS:
         if not text:
             raise GnaniError("TTS text is empty")
         last_err: GnaniError | None = None
-        for model, voice, language in voice_plan(lang):
+        for model, voice, language in voice_plan(lang, self.voice):
             key = self.cache_key(text, model, voice, language)
             if (hit := self._cache_get(key)) is not None:
                 return hit

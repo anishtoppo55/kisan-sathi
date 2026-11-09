@@ -10,6 +10,8 @@ Flow: route (Gemini flash-lite JSON, keyword fallback) -> module handler -> Pipe
 
 from __future__ import annotations
 
+import asyncio
+import json
 import logging
 import re
 from collections import OrderedDict, deque
@@ -210,6 +212,7 @@ class Pipeline:
         self.mausam = mausam  # MausamSaathi or None
         self.threshold = threshold
         self._scheme_kw = [k for s in self.schemes for k in s.get("keywords", [])]
+        self._l10n_cache: dict[tuple[str, str], list[str]] = {}
 
     # ---------- routing ----------
     async def route(self, text: str, history: list[Message]) -> dict:
@@ -320,13 +323,69 @@ class Pipeline:
         if crop:
             require["crop"] = crop
         hits = await self.retrieve(query, require=require, filters={"stage": stage} if stage else None)
-        reply = await self.answer_from_kb(text, hits, lang, history)
-        if reply is None:
+        if not hits or hits[0].score < self.threshold:
+            log.info("KB miss (top score %.3f)", hits[0].score if hits else -1)
             return await self.web_answer(query, lang)
         reminder = _l(KVK_REMINDER, lang)
+        card = crop_card(hits, crop, stage, lang, reminder)
+        # Answer and card translation run in parallel: the card text comes from the English KB.
+        reply, localized = await asyncio.gather(
+            self.answer_from_kb(text, hits, lang, history),
+            self.localize_lines([card["data"]["title"], *card["data"]["actions"]], lang, hits[0].chunk.id),
+        )
+        if reply is None:
+            return await self.web_answer(query, lang)
+        if localized:
+            card["data"]["title"], card["data"]["actions"] = localized[0], localized[1:]
         if "KVK" not in reply:
             reply = f"{reply} {reminder}"
-        return PipelineResult(reply, cards=[crop_card(hits, crop, stage, lang, reminder)])
+        return PipelineResult(reply, cards=[card])
+
+    async def localize_lines(self, lines: list[str], lang: str, cache_id: str) -> list[str] | None:
+        """Translate KB lines (English) into the reply language for the card. Chemical names,
+        numbers and units are kept exactly; any failure or mismatch keeps the English text."""
+        if lang not in ("hi-IN", "hi-en") or not lines:
+            return None
+        key = (cache_id, lang)
+        if key in self._l10n_cache:
+            return self._l10n_cache[key]
+        script = "simple Hindi in Devanagari script" if lang == "hi-IN" else "simple Hinglish (Hindi in Roman/Latin script)"
+        system = (f"Translate each line for Chhattisgarh farmers into {script}. Return JSON {{\"lines\": [...]}} with exactly "
+                  f"{len(lines)} strings in the same order. Keep pesticide/chemical/variety names, numbers, units, "
+                  "percentages and abbreviations (ETL, KVK, BPH, SC, EC, WP, ml, kg, ha) exactly as written. Do not add or drop facts.")
+        try:
+            data = await self.gemini.generate_json(system, json.dumps(lines, ensure_ascii=False), L10N_SCHEMA)
+        except GeminiError as e:
+            log.warning("card localization failed: %s", e)
+            return None
+        out = data.get("lines")
+        if not (isinstance(out, list) and len(out) == len(lines) and all(isinstance(x, str) and x.strip() for x in out)):
+            log.warning("card localization returned %r lines for %d", len(out) if isinstance(out, list) else out, len(lines))
+            return None
+        if not _numbers_preserved(lines, out):
+            log.warning("card localization changed numbers; keeping English")
+            return None
+        if len(self._l10n_cache) > 512:
+            self._l10n_cache.clear()
+        self._l10n_cache[key] = out
+        return out
+
+
+L10N_SCHEMA = {
+    "type": "object",
+    "properties": {"lines": {"type": "array", "items": {"type": "string"}}},
+    "required": ["lines"],
+}
+_NUM = re.compile(r"\d+(?:\.\d+)?")
+
+
+def _numbers_preserved(src: list[str], dst: list[str]) -> bool:
+    """Doses must survive translation: every number in a source line appears in its translation."""
+    for a, b in zip(src, dst):
+        have = set(_NUM.findall(b))
+        if any(n not in have for n in _NUM.findall(a)):
+            return False
+    return True
 
 
 def _bullets(text: str, n: int = 4) -> list[str]:

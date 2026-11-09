@@ -46,7 +46,8 @@ Tips: record on the phone over the public HTTPS URL; keep each question under 10
 
 **Gnani AI technology used.**
 - **Prisma v3.0** speech-to-text (REST, `language_code=indic-auto`). Its `detected_language_code` decides whether the reply is in Hindi (Devanagari) or Hinglish.
-- **Timbre v3.0** text-to-speech (voice Shivani) for Hindi and English, and **Timbre v2.5** (voice Poorvi, `hi-en`) for Hinglish, with automatic fallback between the two.
+- **Timbre v3.0** text-to-speech with the male voice **Yashraj** for both Hindi (`hi-IN`) and Roman-script Hinglish (`auto`), with an automatic fallback to the male **Timbre v2.5** voices Deepak (Hindi/Hinglish) and Pranav (English).
+- A **हिंदी | Hinglish** toggle switches the whole interface and every reply (typed or spoken) between Devanagari Hindi and Hinglish; crop-card advice from the English knowledge base is translated with chemical names and doses kept exactly.
 
 **Other technology.** Gemini (intent routing, profile extraction, grounded answers, `gemini-embedding-2` for retrieval, Google Search grounding), FastAPI, Open-Meteo, AWS Lightsail with Caddy HTTPS.
 

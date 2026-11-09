@@ -65,10 +65,16 @@ async def test_stt_timeout():
 # ---------- TTS ----------
 
 def test_voice_plan_mapping():
-    assert voice_plan("hi-IN")[0] == ("timbre-v3.0", "Shivani", "hi-IN")
-    assert voice_plan("hi-en")[0] == ("timbre-v2.5", "Poorvi", "hi-en")
-    assert voice_plan("en-IN")[1][0] == "timbre-v2.5"
+    assert voice_plan("hi-IN")[0] == ("timbre-v3.0", "Yashraj", "hi-IN")
+    assert voice_plan("hi-en")[0] == ("timbre-v3.0", "Yashraj", "auto")
+    assert voice_plan("hi-IN")[1] == ("timbre-v2.5", "Deepak", "hi-IN")  # male v2.5 fallback
+    assert voice_plan("hi-en")[1] == ("timbre-v2.5", "Deepak", "hi-IN")
+    assert voice_plan("en-IN")[1] == ("timbre-v2.5", "Pranav", "en-IN")
     assert voice_plan("ta-IN") == voice_plan("hi-IN")  # unknown -> Hindi
+    assert voice_plan("hi-IN", "Avinash")[0][1] == "Avinash"  # configurable v3.0 voice
+    from app.clients.gnani import V3_MALE_VOICES
+    for lang in ("hi-IN", "hi-en", "en-IN"):
+        assert voice_plan(lang)[0][1] in V3_MALE_VOICES
 
 
 @respx.mock
@@ -78,7 +84,7 @@ async def test_tts_request_payload():
         audio = await GnaniTTS("k", c).speak("नमस्ते", "hi-IN")
     assert audio == b"MP3DATA"
     payload = json.loads(route.calls.last.request.content)
-    assert payload["model"] == "timbre-v3.0" and payload["voice"] == "Shivani" and payload["language"] == "hi-IN"
+    assert payload["model"] == "timbre-v3.0" and payload["voice"] == "Yashraj" and payload["language"] == "hi-IN"
     assert payload["audio_config"]["container"] == "mp3"
 
 
@@ -92,7 +98,7 @@ async def test_tts_falls_back_to_v25():
         audio = await GnaniTTS("k", c).speak("नमस्ते", "hi-IN")
     assert audio == b"V25"
     second = json.loads(route.calls[1].request.content)
-    assert (second["model"], second["voice"]) == ("timbre-v2.5", "Nalini")
+    assert (second["model"], second["voice"]) == ("timbre-v2.5", "Deepak")
 
 
 @respx.mock

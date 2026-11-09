@@ -84,6 +84,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 .logo { font-family: var(--f-serif); font-size: 1.7rem; color: var(--ink); text-decoration: none; line-height: 1; }
 .logo em { color: var(--accent); font-style: italic; }
 .topnav { display: flex; gap: var(--s1); margin-left: auto; }
+.topbar-inner .lang-toggle { margin-left: var(--s2); }
 .topnav-link {
   font-family: var(--f-mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase;
   color: var(--muted); padding: var(--s2) var(--s3); min-height: 36px; border-bottom: 2px solid transparent;
@@ -102,8 +103,19 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 }
 .infostrip .cell {
   padding: var(--s4) var(--s6); font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--muted); line-height: 1.7;
+  text-transform: uppercase; color: var(--muted); line-height: 1.7; white-space: pre-line;
 }
+
+/* Language toggle (हिंदी | Hinglish) */
+.lang-toggle { display: inline-flex; border: 1px solid var(--line); background: var(--bg); border-radius: 2px; padding: 2px; flex: none; }
+.lang-toggle button {
+  min-height: 32px; padding: 0 var(--s3); font-size: .8rem; font-weight: 600; color: var(--muted); border-radius: 2px;
+}
+.lang-toggle button[lang="hi"] { font-family: "Noto Sans Devanagari", var(--f-sans); }
+.lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.lang-toggle button:hover:not([aria-pressed="true"]) { color: var(--accent-ink); }
+html[lang="hi"] .label, html[lang="hi"] .topnav-link, html[lang="hi"] .infostrip .cell,
+html[lang="hi"] .footer, html[lang="hi"] .btn-primary, html[lang="hi"] .card h4 { letter-spacing: .02em; }
 .infostrip .cell + .cell { border-left: 1px solid var(--line); }
 
 .layout {
@@ -300,12 +312,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
     padding-bottom: calc(var(--tabbar-h) + var(--composer-h) + 24px + env(safe-area-inset-bottom));
   }
   .topbar { background: transparent; border: 0; position: static; }
-  .topbar-inner { padding: var(--s3) var(--s4) 0; }
+  .topbar-inner { padding: var(--s3) var(--s4) 0; flex-wrap: wrap; gap: var(--s2) var(--s3); }
   .logo { font-size: 1.35rem; white-space: nowrap; }
   .topnav, .infostrip, .intro, .footer, .panel-head { display: none; }
+  .lang-toggle { margin-left: auto; border-radius: var(--r-pill); background: rgba(255, 255, 255, .85); border-color: #fff; box-shadow: var(--shadow-soft); }
+  .lang-toggle button { border-radius: var(--r-pill); min-height: 36px; }
   .badge-powered {
-    margin-left: auto; font-size: .58rem; line-height: 1.3; padding: 4px 10px; border-radius: var(--r-pill);
-    border-color: #D9CFFF; white-space: normal; text-align: center; max-width: 190px;
+    order: 3; flex-basis: 100%; text-align: center; font-size: .58rem; line-height: 1.3; padding: 4px 10px;
+    border-radius: var(--r-pill); border-color: #D9CFFF; white-space: normal;
   }
 
   .layout { display: block; border: 0; min-height: 0; height: auto; }

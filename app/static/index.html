@@ -30,25 +30,32 @@
     <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
   </svg>
 
-  <!-- Desktop top bar -->
+  <!-- Desktop top bar (also the mobile header) -->
   <header class="topbar">
     <div class="topbar-inner">
       <a class="logo" href="/" aria-label="Kisan Saathi home">Kisan <em>Saathi</em></a>
       <nav class="topnav" aria-label="Modules">
-        <button type="button" class="topnav-link active" data-filter="all">Home</button>
-        <button type="button" class="topnav-link" data-filter="yojana">Yojana</button>
-        <button type="button" class="topnav-link" data-filter="fasal">Fasal</button>
-        <button type="button" class="topnav-link" data-filter="mausam">Mausam</button>
+        <button type="button" class="topnav-link active" data-filter="all" data-i18n="nav.home">Home</button>
+        <button type="button" class="topnav-link" data-filter="yojana" data-i18n="nav.yojana">Yojana</button>
+        <button type="button" class="topnav-link" data-filter="fasal" data-i18n="nav.fasal">Fasal</button>
+        <button type="button" class="topnav-link" data-filter="mausam" data-i18n="nav.mausam">Mausam</button>
       </nav>
+      <div class="lang-toggle" role="group" aria-label="Bhasha / भाषा" data-i18n-attr="aria-label:lang.label">
+        <button type="button" data-ui-lang="hi-IN" aria-pressed="false" lang="hi">हिंदी</button>
+        <button type="button" data-ui-lang="hi-en" aria-pressed="true">Hinglish</button>
+      </div>
       <span class="badge-powered">Powered by Gnani Prisma v3.0 &amp; Timbre v3.0</span>
     </div>
   </header>
 
   <!-- Desktop info strip -->
   <div class="infostrip" aria-hidden="true">
-    <div class="cell">Voice-first farm assistant<br>for Chhattisgarh farmers</div>
-    <div class="cell">Hindi · Hinglish<br>bolkar ya likhkar</div>
-    <div class="cell">Yojana · Fasal · Mausam<br>ek jagah</div>
+    <div class="cell" data-i18n="info.1">Voice-first farm assistant
+for Chhattisgarh farmers</div>
+    <div class="cell" data-i18n="info.2">Hindi · Hinglish
+bolkar ya likhkar</div>
+    <div class="cell" data-i18n="info.3">Yojana · Fasal · Mausam
+ek jagah</div>
   </div>
 
   <main class="layout">
@@ -56,15 +63,15 @@
       <!-- Mobile welcome (hidden on desktop and after the first message) -->
       <div class="welcome" id="welcome">
         <div class="orb" id="orb" aria-hidden="true"></div>
-        <p class="welcome-hello">Johar! Namaste 🙏</p>
-        <h1 class="headline">Aaj kya <em>madad</em> karun?</h1>
+        <p class="welcome-hello" data-i18n="welcome.hello">Johar! Namaste 🙏</p>
+        <h1 class="headline"><span data-i18n="welcome.pre">Aaj kya</span> <em data-i18n="head.em">madad</em> <span data-i18n="welcome.post">karun?</span></h1>
         <img class="welcome-illus" src="/static/illustration.svg" alt="" width="220" height="183">
       </div>
 
       <!-- Desktop intro -->
       <div class="intro">
-        <span class="label">24/7 Kisan sahayata</span>
-        <h1 class="headline">Aaj kis cheez mein <em>madad</em> karun?</h1>
+        <span class="label" data-i18n="intro.label">24/7 Kisan sahayata</span>
+        <h1 class="headline"><span data-i18n="head.pre">Aaj kis cheez mein</span> <em data-i18n="head.em">madad</em> <span data-i18n="head.post">karun?</span></h1>
       </div>
 
       <!-- Suggestions: chips on desktop, 2×2 cards on mobile (built by app.js) -->
@@ -73,26 +80,26 @@
       <div id="messages" class="messages" aria-live="polite"></div>
 
       <form id="chat-form" class="composer">
-        <button type="button" id="mic-btn" class="btn-icon mic" aria-label="Bolkar poochhiye" title="Mic support check ho raha hai" disabled>
+        <button type="button" id="mic-btn" class="btn-icon mic" aria-label="Bolkar poochhiye" data-i18n-attr="aria-label:mic.label" title="Mic support check ho raha hai" disabled>
           <svg class="ic"><use href="#i-mic"/></svg>
         </button>
-        <input id="chat-input" type="text" maxlength="1000" placeholder="Apna sawal likhiye ya boliye…" autocomplete="off" aria-label="Apna sawal" required>
-        <button type="submit" id="send-btn" class="btn-primary send" aria-label="Bhejein">
-          <span class="send-text">Bhejein</span>
+        <input id="chat-input" type="text" maxlength="1000" placeholder="Apna sawal likhiye ya boliye…" autocomplete="off" aria-label="Apna sawal" data-i18n-attr="placeholder:input.placeholder,aria-label:input.label" required>
+        <button type="submit" id="send-btn" class="btn-primary send" aria-label="Bhejein" data-i18n-attr="aria-label:send.label">
+          <span class="send-text" data-i18n="send.label">Bhejein</span>
           <svg class="ic"><use href="#i-send"/></svg>
         </button>
       </form>
     </section>
 
     <section class="cards-panel" aria-label="Parinaam">
-      <div class="panel-head"><span class="label">Parinaam / Results</span></div>
+      <div class="panel-head"><span class="label" data-i18n="panel.label">Parinaam / Results</span></div>
       <div id="cards" class="cards">
         <div class="empty-state" id="empty-state">
           <img class="empty-illus" src="/static/illustration.svg" alt="Kisan with a phone in a paddy field, a rain cloud and a scheme document" width="480" height="400">
           <div class="steps">
-            <div class="step"><span class="label">01 / Boliye</span><strong>Gnani Prisma v3.0</strong><small>Aapki aawaz ko text mein</small></div>
-            <div class="step"><span class="label">02 / Samjhe</span><strong>Gemini + knowledge base</strong><small>Yojana, fasal, mausam ki jaankari</small></div>
-            <div class="step"><span class="label">03 / Suniye</span><strong>Gnani Timbre</strong><small>Jawab aapki bhasha mein</small></div>
+            <div class="step"><span class="label" data-i18n="step1.label">01 / Boliye</span><strong>Gnani Prisma v3.0</strong><small data-i18n="step1.sub">Aapki aawaz ko text mein</small></div>
+            <div class="step"><span class="label" data-i18n="step2.label">02 / Samjhe</span><strong>Gemini + knowledge base</strong><small data-i18n="step2.sub">Yojana, fasal, mausam ki jaankari</small></div>
+            <div class="step"><span class="label" data-i18n="step3.label">03 / Suniye</span><strong>Gnani Timbre</strong><small data-i18n="step3.sub">Jawab aapki bhasha mein</small></div>
           </div>
         </div>
       </div>
@@ -100,16 +107,16 @@
   </main>
 
   <footer class="footer">
-    <span>Yeh salah sirf jaankari ke liye hai. Yojana ki shartein aur dawa/khaad ki matra apne nazdeeki KVK, RAEO ya krishi vibhag se pushti karein.</span>
+    <span data-i18n="footer.disclaimer">Yeh salah sirf jaankari ke liye hai. Yojana ki shartein aur dawa/khaad ki matra apne nazdeeki KVK, RAEO ya krishi vibhag se pushti karein.</span>
     <span>Data: Open-Meteo · pmkisan.gov.in · pmfby.gov.in · ICAR / NCIPM</span>
   </footer>
 
   <!-- Mobile bottom tab bar -->
   <nav class="tabbar" aria-label="Modules">
-    <button type="button" class="tab active" data-filter="all" aria-label="Home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
-    <button type="button" class="tab" data-filter="yojana" aria-label="Yojana"><svg class="ic"><use href="#i-scheme"/></svg><span>Yojana</span></button>
-    <button type="button" class="tab" data-filter="fasal" aria-label="Fasal"><svg class="ic"><use href="#i-leaf"/></svg><span>Fasal</span></button>
-    <button type="button" class="tab" data-filter="mausam" aria-label="Mausam"><svg class="ic"><use href="#i-cloud"/></svg><span>Mausam</span></button>
+    <button type="button" class="tab active" data-filter="all" aria-label="Home" data-i18n-attr="aria-label:nav.home"><svg class="ic"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></button>
+    <button type="button" class="tab" data-filter="yojana" aria-label="Yojana" data-i18n-attr="aria-label:nav.yojana"><svg class="ic"><use href="#i-scheme"/></svg><span data-i18n="nav.yojana">Yojana</span></button>
+    <button type="button" class="tab" data-filter="fasal" aria-label="Fasal" data-i18n-attr="aria-label:nav.fasal"><svg class="ic"><use href="#i-leaf"/></svg><span data-i18n="nav.fasal">Fasal</span></button>
+    <button type="button" class="tab" data-filter="mausam" aria-label="Mausam" data-i18n-attr="aria-label:nav.mausam"><svg class="ic"><use href="#i-cloud"/></svg><span data-i18n="nav.mausam">Mausam</span></button>
   </nav>
 
   <script src="/static/app.js"></script>
