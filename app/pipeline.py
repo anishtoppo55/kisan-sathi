@@ -26,6 +26,8 @@ from app.rag.store import Hit, format_context, query_text
 log = logging.getLogger(__name__)
 
 HISTORY_TURNS = 6
+ROUTER_BUDGET_S = 6.0   # whole Gemini routing step; on timeout keyword routing is used
+L10N_BUDGET_S = 6.0     # crop-card translation; on timeout the English KB text is shown
 MAX_SESSIONS = 500
 KB_SCORE_THRESHOLD = 0.70  # tuned on 10 questions: KB answers scored >= 0.75, off-KB <= 0.69
 NO_ANSWER = "NO_ANSWER"
@@ -157,7 +159,7 @@ KEYWORDS = {
 }
 CROP_KEYWORDS = {
     "paddy": ["dhaan", "dhan", "धान", "paddy", "rice", "chawal", "चावल"],
-    "chana": ["chana", "चना", "gram"],
+    "chana": ["chana", "chane", "चना", "चने", "gram"],
     "wheat": ["gehun", "gehu", "गेहूं", "गेहूँ", "wheat"],
     "teora": ["teora", "tiwda", "tivda", "तिवड़ा", "lakhdi", "लाखड़ी", "khesari", "lathyrus", "utera", "उतेरा"],
     "maize": ["makka", "makke", "makai", "मक्का", "मक्के", "मकई", "bhutta", "भुट्टा", "maize", "corn"],
@@ -206,20 +208,82 @@ def _l(d: dict, lang: str) -> str:
     return d.get(lang) or d.get("hi-en") or next(iter(d.values()))
 
 
+STAGE_KEYWORDS = {
+    "sowing": ["buvai", "buwai", "bowai", "बुवाई", "बुआई", "boyein", "boun", "bona", "बोएँ", "बोऊँ", "बोना", "sowing", "nursery", "नर्सरी", "beej upchar", "बीज उपचार"],
+    "flowering": ["phool", "फूल", "flowering", "baali", "बाली", "gabhot", "गभोट", "tassel"],
+    "maturity": ["katai", "कटाई", "pak", "पक", "harvest", "dana bhar", "दाना भर"],
+    "post-harvest": ["bhandaran", "भंडारण", "storage", "sukhana", "सुखाना"],
+}
+# Hindi spellings of districts in the weather table (English names are matched directly)
+DISTRICTS_HI = {
+    "रायपुर": "Raipur", "बिलासपुर": "Bilaspur", "दुर्ग": "Durg", "भिलाई": "Bhilai", "राजनांदगांव": "Rajnandgaon",
+    "बेमेतरा": "Bemetara", "धमतरी": "Dhamtari", "महासमुंद": "Mahasamund", "कांकेर": "Kanker", "जगदलपुर": "Jagdalpur",
+    "बस्तर": "Bastar", "कोरबा": "Korba", "रायगढ़": "Raigarh", "जांजगीर": "Janjgir", "अंबिकापुर": "Ambikapur",
+    "सरगुजा": "Surguja", "कवर्धा": "Kawardha", "कबीरधाम": "Kabirdham", "मुंगेली": "Mungeli", "बालोद": "Balod",
+    "बलौदा बाजार": "Baloda Bazar", "गरियाबंद": "Gariaband", "कोंडागांव": "Kondagaon", "दंतेवाड़ा": "Dantewada",
+    "सुकमा": "Sukma", "बीजापुर": "Bijapur", "नारायणपुर": "Narayanpur", "जशपुर": "Jashpur", "कोरिया": "Koriya",
+    "बलरामपुर": "Balrampur", "सूरजपुर": "Surajpur", "सक्ती": "Sakti",
+}
+# Words that refer back to earlier turns ("uske liye", "इसमें"): the router needs the conversation.
+FOLLOW_UP = re.compile(r"\b(uske|uska|uski|iske|iska|iski|isme|usme|inme|unme|woh|wahi|aur kya|phir)\b|"
+                       r"(उसके|उसका|उसकी|इसके|इसका|इसकी|इसमें|उसमें|इनमें|उनमें|वही|और क्या)", re.I)
+
+
+SELF_RE = re.compile(r"\b(main|mai|mera|meri|mere|hoon|hun)\b|(मैं|मेरा|मेरी|मेरे|हूँ|हूं)")
+PROFILE_FACTS = [
+    re.compile(r"\d+(\.\d+)?\s*(acre|ekad|ekar|एकड़|hectare|हेक्टेयर|dismil|डिसमिल)"),
+    re.compile(r"income ?tax|इनकम टैक्स|आयकर"),
+    re.compile(r"\bkcc\b|kisan credit|किसान क्रेडिट"),
+    re.compile(r"pension|पेंशन|naukri|नौकरी|sarkari|सरकारी"),
+    re.compile(r"batai|बटाई|adhiya|kiraye|किराये|zameen|ज़मीन|जमीन|khet hai|खेत है"),
+    re.compile(r"kisan hoon|kisan hun|किसान हूँ|किसान हूं"),
+]
+
+
+def _district(low: str) -> str | None:
+    from app.clients.weather import DISTRICTS
+    for hi, en in DISTRICTS_HI.items():
+        if hi in low:
+            return en
+    for name in sorted(DISTRICTS, key=len, reverse=True):
+        if re.search(rf"\b{re.escape(name)}\b", low):
+            return name.title()
+    return None
+
+
 def keyword_route(text: str, scheme_keywords: list[str]) -> dict:
+    """Keyword routing. `confident` is True when exactly one module's keywords match clearly,
+    so the Gemini router call (1.5-7 s) can be skipped."""
     low = text.lower()
     crop = next((c for c, ws in CROP_KEYWORDS.items() if any(w in low for w in ws)), None)
-    if any(w in low for w in KEYWORDS["mausam"]):
+    stage = next((st for st, ws in STAGE_KEYWORDS.items() if any(w in low for w in ws)), None)
+    # A farmer describing themselves ("main 2 acre ka kisan hoon, income tax nahi bharta, KCC nahi hai")
+    # wants the eligibility check, even though scheme words like KCC appear.
+    describes_self = bool(SELF_RE.search(low)) and sum(bool(r.search(low)) for r in PROFILE_FACTS) >= 2
+    hits = {
+        "mausam": any(w in low for w in KEYWORDS["mausam"]),
+        "eligibility": describes_self or any(w in low for w in KEYWORDS["eligibility"]),
+        "yojana": any(w in low for w in scheme_keywords),
+        "crop": bool(crop) or any(w in low for w in KEYWORDS["crop"]),
+    }
+    if hits["mausam"]:
         intent = "mausam"
-    elif any(w in low for w in KEYWORDS["eligibility"]):
+    elif hits["eligibility"]:
         intent = "eligibility"
-    elif any(w in low for w in scheme_keywords):
+    elif hits["yojana"]:
         intent = "yojana"
-    elif crop or any(w in low for w in KEYWORDS["crop"]):
+    elif hits["crop"]:
         intent = "crop"
     else:
         intent = "general"
-    return {"intent": intent, "crop": crop, "stage": None, "district": None, "search_query": text}
+    # Clear when: one of mausam / eligibility / yojana alone (crop words may accompany them, e.g.
+    # "gehun mein paani doon?" with weather, "dhaan token" with a scheme), or crop alone.
+    primary = [k for k in ("mausam", "eligibility", "yojana") if hits[k]]
+    if describes_self and not hits["mausam"]:
+        primary = ["eligibility"]
+    confident = intent != "general" and len(primary) <= 1
+    return {"intent": intent, "crop": crop, "stage": stage, "district": _district(low), "search_query": text,
+            "confident": confident}
 
 
 @dataclass
@@ -282,21 +346,35 @@ class Pipeline:
 
     # ---------- routing ----------
     async def route(self, text: str, history: list[Message]) -> dict:
+        kw = keyword_route(text, self._scheme_kw)
+        follow_up = bool(history) and (FOLLOW_UP.search(text) or len(text.split()) <= 3)
+        if kw.pop("confident") and not follow_up:
+            log.info("router: keyword fast path")
+            return kw
         convo = "\n".join(f"{m.role}: {m.text}" for m in history[-4:])
         prompt = (f"Conversation so far:\n{convo}\n\n" if convo else "") + f"Farmer's new message: {text}"
         try:
-            r = await self.gemini.generate_json(ROUTER_SYSTEM, prompt, ROUTER_SCHEMA)
-        except GeminiError as e:
-            log.warning("router fell back to keywords: %s", e)
-            return keyword_route(text, self._scheme_kw)
+            r = await asyncio.wait_for(self.gemini.generate_json(ROUTER_SYSTEM, prompt, ROUTER_SCHEMA), ROUTER_BUDGET_S)
+        except (GeminiError, asyncio.TimeoutError) as e:
+            log.warning("router fell back to keywords: %s", e.__class__.__name__ if isinstance(e, asyncio.TimeoutError) else e)
+            return kw
         r.setdefault("search_query", text)
         if r.get("intent") not in ("yojana", "eligibility", "crop", "mausam", "general"):
-            r["intent"] = keyword_route(text, self._scheme_kw)["intent"]
+            r["intent"] = kw["intent"]
         if r.get("crop") not in CROPS:
             r["crop"] = None
         if r.get("stage") not in STAGES:
             r["stage"] = None
         return r
+
+    @staticmethod
+    async def _bounded(coro, seconds: float, what: str):
+        """Run an optional step with a time cap; None if it is too slow."""
+        try:
+            return await asyncio.wait_for(coro, seconds)
+        except asyncio.TimeoutError:
+            log.warning("%s skipped after %.0fs", what, seconds)
+            return None
 
     # ---------- entry point ----------
     async def handle(self, text: str, lang: str, session_id: str | None = None) -> PipelineResult:
@@ -412,10 +490,11 @@ class Pipeline:
 
     async def extract_profile(self, text: str) -> FarmerProfile:
         try:
-            data = await self.gemini.generate_json(yojana.EXTRACT_SYSTEM, text, yojana.PROFILE_SCHEMA)
+            data = await asyncio.wait_for(self.gemini.generate_json(yojana.EXTRACT_SYSTEM, text, yojana.PROFILE_SCHEMA),
+                                          ROUTER_BUDGET_S + 2)
             return FarmerProfile(**{k: v for k, v in data.items() if k in FarmerProfile.model_fields})
-        except (GeminiError, ValueError) as e:
-            log.warning("profile extraction failed: %s", e)
+        except (GeminiError, ValueError, asyncio.TimeoutError) as e:
+            log.warning("profile extraction failed: %s", e.__class__.__name__ if isinstance(e, asyncio.TimeoutError) else e)
             return FarmerProfile()
 
     async def eligibility(self, text: str, lang: str, session_id: str | None) -> PipelineResult:
@@ -445,7 +524,8 @@ class Pipeline:
         # Answer and card translation run in parallel: the card text comes from the English KB.
         reply, localized = await asyncio.gather(
             self.answer_from_kb(text, hits, lang, history),
-            self.localize_lines([card["data"]["title"], *card["data"]["actions"]], lang, hits[0].chunk.id),
+            self._bounded(self.localize_lines([card["data"]["title"], *card["data"]["actions"]], lang, hits[0].chunk.id),
+                          L10N_BUDGET_S, "card localization"),
         )
         if reply is None:
             return await self.web_answer(query, lang)

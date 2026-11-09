@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import time
 from dataclasses import dataclass, field
 
 from google import genai
@@ -19,9 +20,10 @@ from google.genai import types
 log = logging.getLogger(__name__)
 
 # Free-tier daily limits (AI Studio, Nov 2026): 3.6/3.8 Flash 20 RPD, 3.5/3.1 Flash-Lite 500 RPD.
-# Answers go to 3.5 Flash-Lite and small JSON tasks to 3.1 Flash-Lite, so the two 500-RPD
-# quotas share the load; the 20-RPD Flash models are last resorts only.
-ANSWER_MODELS = ("gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.6-flash")
+# Measured on the same RAG prompt (3 runs each): 3.1 Flash-Lite 1.2-1.8 s, 3.5 Flash-Lite 0.6-8.5 s.
+# So 3.1 Flash-Lite answers first; 3.5 Flash-Lite is the fallback (also on 3.1's 503 "high demand");
+# the 20-RPD Flash model is the last resort.
+ANSWER_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.6-flash")
 FAST_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.6-flash")
 EMBED_MODEL = "gemini-embedding-2"
 EMBED_DIM = 768
@@ -76,32 +78,62 @@ def _is_transient(e: Exception) -> bool:
     return isinstance(e, genai_errors.APIError) and getattr(e, "code", None) in TRANSIENT
 
 
+class BadResponse(Exception):
+    """A 200 response that is unusable (empty, MALFORMED_RESPONSE, invalid JSON): try the next model."""
+
+
+def _check_text(resp):
+    text = (getattr(resp, "text", None) or "").strip()
+    if not text:
+        reasons = [str(getattr(c, "finish_reason", "")) for c in getattr(resp, "candidates", None) or []]
+        raise BadResponse(f"empty answer (finish: {', '.join(reasons) or 'none'})")
+    return text
+
+
+def _check_json(resp):
+    try:
+        data = json.loads(getattr(resp, "text", None) or "")
+    except (json.JSONDecodeError, TypeError) as e:
+        raise BadResponse("invalid JSON") from e
+    if not isinstance(data, dict):
+        raise BadResponse("JSON was not an object")
+    return data
+
+
 class GeminiClient:
-    def __init__(self, api_key: str, answer_models=ANSWER_MODELS, fast_models=FAST_MODELS, timeout_s: float = 20.0,
-                 fast_timeout_s: float = 8.0):
+    def __init__(self, api_key: str, answer_models=ANSWER_MODELS, fast_models=FAST_MODELS, timeout_s: float = 9.0,
+                 fast_timeout_s: float = 5.0):
         self._client = genai.Client(api_key=api_key)
         self.answer_models = tuple(answer_models)
         self.fast_models = tuple(fast_models)
+        # Per-attempt timeouts. Normal answers take 1-3 s; a call that hangs longer is abandoned
+        # and the next model is tried, instead of the farmer waiting 15-20 s.
         self.timeout_s = timeout_s
-        # Small JSON tasks (routing, extraction) should answer in ~2 s; a stuck call moves on quickly.
         self.fast_timeout_s = fast_timeout_s
 
-    async def _generate(self, models, contents, cfg, what: str, rounds: int = 2, timeout_s: float | None = None):
-        """Try each model in order; on transient errors move to the next one.
+    async def _generate(self, models, contents, cfg, what: str, rounds: int = 2, timeout_s: float | None = None,
+                        check=None):
+        """Try each model in order; on transient errors, timeouts or unusable responses
+        (`check` raises BadResponse) move to the next one. Returns check(resp) or resp.
         The whole chain is tried `rounds` times with a short pause in between."""
         last: Exception | None = None
         for round_ in range(rounds):
             for model in models:
+                t0 = time.monotonic()
                 try:
                     resp = await asyncio.wait_for(
                         self._client.aio.models.generate_content(model=model, contents=contents, config=cfg),
                         timeout_s or self.timeout_s,
                     )
-                    log.info("Gemini %s answered by %s", what, model)
-                    return resp
+                    out = check(resp) if check else resp
+                    log.info("Gemini %s answered by %s in %.1fs", what, model, time.monotonic() - t0)
+                    return out
+                except BadResponse as e:
+                    last = e
+                    log.warning("Gemini %s unusable response from %s: %s", what, model, e)
                 except asyncio.TimeoutError as e:
                     last = e
-                    log.warning("Gemini %s timed out on %s", what, model)
+                    log.warning("Gemini %s timed out on %s after %.1fs", what, model, time.monotonic() - t0)
                 except Exception as e:  # noqa: BLE001
                     last = e
                     if not _is_transient(e):
@@ -128,13 +160,12 @@ class GeminiClient:
             thinking_config=types.ThinkingConfig(thinking_level="low"),
         )
         models = self.fast_models if fast else self.answer_models
-        resp = await self._generate(models, _contents(history or [], user_text), cfg, "generate",
-                                    timeout_s=self.fast_timeout_s if fast else None)
-        _warn_if_truncated(resp)
-        text = (resp.text or "").strip()
-        if not text:
-            raise GeminiError("Gemini returned an empty answer")
-        return text
+        def check(resp):
+            _warn_if_truncated(resp)
+            return _check_text(resp)
+
+        return await self._generate(models, _contents(history or [], user_text), cfg, "generate",
+                                    timeout_s=self.fast_timeout_s if fast else None, check=check)
 
     async def generate_json(self, system: str, user_text: str, schema: dict, *, fast: bool = True) -> dict:
         cfg = types.GenerateContentConfig(
@@ -145,14 +176,8 @@ class GeminiClient:
             thinking_config=types.ThinkingConfig(thinking_level="low"),
         )
         models = self.fast_models if fast else self.answer_models
-        resp = await self._generate(models, user_text, cfg, "json", timeout_s=self.fast_timeout_s if fast else None)
-        try:
-            data = json.loads(resp.text or "{}")
-        except json.JSONDecodeError as e:
-            raise GeminiError("Gemini returned invalid JSON") from e
-        if not isinstance(data, dict):
-            raise GeminiError("Gemini JSON was not an object")
-        return data
+        return await self._generate(models, user_text, cfg, "json", timeout_s=self.fast_timeout_s if fast else None,
+                                    check=_check_json)
 
     async def embed(self, texts: list[str]) -> list[list[float]]:
         """One embedding per text (each text in its own Content so they aren't aggregated)."""

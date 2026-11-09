@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     kb_score_threshold: float = 0.70  # below this top retrieval score, use the web fallback
     tts_voice: str = "Yashraj"  # Timbre v3.0 voice (male options: Avinash, Shubham, Prakash, Devansh, Yashraj, Harshad)
     # Comma-separated Gemini model fallback chains (see app/clients/gemini.py for the reasoning)
-    answer_models: str = "gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3.6-flash"
+    answer_models: str = "gemini-3.1-flash-lite,gemini-3.5-flash-lite,gemini-3.6-flash"
     fast_models: str = "gemini-3.1-flash-lite,gemini-3.5-flash-lite,gemini-3.6-flash"
     # Free web search: self-hosted SearXNG (JSON API); DuckDuckGo via ddgs is the fallback
     searxng_url: str = "http://127.0.0.1:8888"

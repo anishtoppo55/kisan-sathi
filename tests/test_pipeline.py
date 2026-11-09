@@ -208,7 +208,7 @@ async def test_free_web_search_summarised_with_used_sources():
     g = FakeGemini(route={"intent": "crop", "search_query": "maize sowing time chhattisgarh"},
                    answers=["Kharif makka June ke beech se July ke beech boyi jaati hai.\nUSED: 1,3"])
     g.qvec = [0, 0, 1]
-    r = await pipeline(g, websearch=ws).handle("Makka kab boyein?", "hi-en", "s")
+    r = await pipeline(g, websearch=ws).handle("Iska samay batao", "hi-en", "s")
     assert ws.calls == [("maize sowing time chhattisgarh", "hi-en")]
     assert r.reply_text == "Web jaankari ke anusaar, Kharif makka June ke beech se July ke beech boyi jaati hai."
     assert [s["url"] for s in r.sources] == ["https://igkv.ac.in/maize", "https://kvk.icar.gov.in/m"]
@@ -389,3 +389,57 @@ def test_prefer_current_month_moves_calendar_chunk_first():
     out = prefer_current_month(hits, now=datetime(2026, 11, 9, tzinfo=IST))
     assert [h.chunk.id for h in out] == ["calendar#4", "calendar#1", "wheat#1"]
     assert prefer_current_month(hits, now=datetime(2026, 8, 1, tzinfo=IST)) == hits
+
+
+# ---------- router fast path ----------
+
+def test_keyword_fast_path_for_demo_questions():
+    kw = [k for s in SCHEMES for k in s["keywords"]]
+    cases = [
+        ("Main 2 acre ka kisan hoon, income tax nahi bharta, KCC nahi hai", "eligibility", None, None, None),
+        ("मैं 2 एकड़ का किसान हूँ, इनकम टैक्स नहीं भरता, KCC नहीं है", "eligibility", None, None, None),
+        ("धान बेचने के लिए टोकन कैसे मिलेगा?", "yojana", "paddy", None, None),
+        ("चने में फूल आ रहे हैं, सिंचाई करूँ?", "crop", "chana", "flowering", None),
+        ("बेमेतरा में अगले हफ्ते बारिश होगी? गेहूँ में पानी दूँ?", "mausam", "wheat", None, "Bemetara"),
+        ("Makka mein fall armyworm lag gaya hai kya karun?", "crop", "maize", None, None),
+    ]
+    for text, intent, crop, stage, district in cases:
+        r = keyword_route(text, kw)
+        assert r["confident"], text
+        assert (r["intent"], r["crop"], r["stage"], r["district"]) == (intent, crop, stage, district), text
+
+
+def test_ambiguous_questions_go_to_gemini():
+    kw = [k for s in SCHEMES for k in s["keywords"]]
+    for text in ["Tractor par subsidy kaise milegi?", "Fasal bima mein barish se nuksaan ka paisa kaise milega?", "Aaj cricket match kaun jeeta?"]:
+        assert not keyword_route(text, kw)["confident"], text
+
+
+async def test_fast_path_skips_router_call():
+    g = FakeGemini(route={"intent": "general", "search_query": "x"}, answers=["Chana: KVK"])
+    await pipeline(g).handle("Chana mein phool aa rahe hain, sinchai karun?", "hi-en", "s")
+    assert not any("Classify" in c["system"] for c in g.calls["json"])
+
+
+async def test_follow_up_uses_gemini_router():
+    g = FakeGemini(route={"intent": "crop", "crop": "chana", "search_query": "chana irrigation"}, answers=["a KVK", "b KVK"])
+    p = pipeline(g)
+    await p.handle("Chana mein phool aa rahe hain, sinchai karun?", "hi-en", "s")
+    await p.handle("Aur uske liye khaad kitna?", "hi-en", "s")
+    assert sum("Classify" in c["system"] for c in g.calls["json"]) == 1
+
+
+async def test_slow_router_falls_back_to_keywords(monkeypatch):
+    import asyncio
+    import app.pipeline as pl
+    monkeypatch.setattr(pl, "ROUTER_BUDGET_S", 0.05)
+
+    class SlowRouter(FakeGemini):
+        async def generate_json(self, system, user_text, schema, **kw):
+            if "intent" in schema.get("properties", {}):
+                await asyncio.sleep(2)
+            return await super().generate_json(system, user_text, schema, **kw)
+
+    g = SlowRouter(answers=["ok"])
+    route = await pipeline(g).route("Tractor par subsidy kaise milegi?", [])
+    assert route["intent"] == "general" and "confident" not in route
