@@ -13,6 +13,7 @@ from app.audio import AudioConversionError, to_wav16k
 from app.clients.gemini import GeminiClient
 from app.clients.gnani import GnaniError, GnaniSTT, GnaniTTS
 from app.clients.weather import WeatherClient
+from app.clients.websearch import DdgsClient, SearxngClient, WebSearch
 from app.config import get_settings
 from app.modules import yojana
 from app.modules.mausam import MausamSaathi
@@ -39,7 +40,8 @@ async def lifespan(app: FastAPI):
     app.state.stt = GnaniSTT(key, app.state.http)
     app.state.tts = GnaniTTS(key, app.state.http, voice=settings.tts_voice)
     gkey = settings.gemini_api_key.get_secret_value() if settings.gemini_api_key else ""
-    gemini = GeminiClient(gkey)
+    gemini = GeminiClient(gkey, answer_models=settings.model_list("answer_models"),
+                          fast_models=settings.model_list("fast_models"))
     try:
         index = VectorIndex.load(INDEX_DIR)
         log.info("KB index loaded: %d chunks", len(index.chunks))
@@ -50,6 +52,9 @@ async def lifespan(app: FastAPI):
         gemini, index=index, schemes=yojana.load_schemes(),
         mausam=MausamSaathi(WeatherClient(app.state.http), gemini),
         threshold=settings.kb_score_threshold,
+        websearch=WebSearch([SearxngClient(app.state.http, settings.searxng_url, settings.web_search_timeout_s),
+                             DdgsClient(timeout_s=settings.web_search_timeout_s + 4)]),
+        use_grounding=settings.gemini_grounding,
     )
     yield
     await app.state.http.aclose()

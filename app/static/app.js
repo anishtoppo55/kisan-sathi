@@ -55,6 +55,8 @@ const STRINGS = {
     "card.crop": "Fasal salah", "card.stage": "Avastha",
     "card.weather": "Mausam", "card.next7": "agle 7 din", "chart.rain": "Baarish (mm)",
     "card.web": "Web se", "card.webTitle": "Web sources", "card.webNote": "Web se mili jaankari; sarkari website par pushti karein.",
+    "card.general": "Samanya jaankari", "card.generalTitle": "Pakka srot nahi mila",
+    "card.generalNote": "Yeh jawab kisi sarkari ya vaigyanik srot se nahi, samanya kheti ki jaankari se hai. Dawa, khaad ki matra aur yojana ki shartein apne KVK ya RAEO se zaroor poochhein.",
     "seg.yes": "Haan", "seg.no": "Nahi", "seg.unknown": "Pata nahi",
     "pf.owns_land": "Zameen apne naam par hai?", "pf.is_tenant": "Batai / kiraye par kheti?",
     "pf.income_tax_payer": "Income tax bharte hain?", "pf.govt_employee_or_pensioner_10k": "Sarkari naukri / ₹10,000+ pension?",
@@ -93,6 +95,8 @@ const STRINGS = {
     "card.crop": "फसल सलाह", "card.stage": "अवस्था",
     "card.weather": "मौसम", "card.next7": "अगले 7 दिन", "chart.rain": "बारिश (मिमी)",
     "card.web": "वेब से", "card.webTitle": "वेब स्रोत", "card.webNote": "यह जानकारी वेब से है; सरकारी वेबसाइट पर पुष्टि करें।",
+    "card.general": "सामान्य जानकारी", "card.generalTitle": "पक्का स्रोत नहीं मिला",
+    "card.generalNote": "यह जवाब किसी सरकारी या वैज्ञानिक स्रोत से नहीं, सामान्य खेती की जानकारी से है। दवा, खाद की मात्रा और योजना की शर्तें अपने KVK या RAEO से ज़रूर पूछें।",
     "seg.yes": "हाँ", "seg.no": "नहीं", "seg.unknown": "पता नहीं",
     "pf.owns_land": "ज़मीन अपने नाम पर है?", "pf.is_tenant": "बटाई / किराये पर खेती?",
     "pf.income_tax_payer": "इनकम टैक्स भरते हैं?", "pf.govt_employee_or_pensioner_10k": "सरकारी नौकरी / ₹10,000+ पेंशन?",
@@ -292,6 +296,16 @@ const cardRenderers = {
     for (const a of d.advisories || []) c.appendChild(el("div", { class: `advisory ${a.level}` }, a.text));
     // Draw after the card is attached to the DOM (renderCards inserts it synchronously).
     setTimeout(() => drawWeather(canvas, d.days || []), 0);
+    return c;
+  },
+
+  general() {
+    const { c } = cardShell("i-alert", t("card.general"));
+    c.appendChild(el("h3", {}, t("card.generalTitle")));
+    const r = el("div", { class: "reminder" });
+    r.appendChild(icon("i-alert"));
+    r.appendChild(el("span", {}, t("card.generalNote")));
+    c.appendChild(r);
     return c;
   },
 

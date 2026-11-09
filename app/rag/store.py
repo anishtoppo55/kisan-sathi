@@ -110,6 +110,11 @@ def _matches(meta: dict, filters: dict) -> bool:
     return True
 
 
+def _required_ok(have, want) -> bool:
+    """Exact match, except a chunk tagged 'all' (e.g. the crop calendar) satisfies any crop."""
+    return have == want or have == "all"
+
+
 @dataclass
 class Hit:
     chunk: Chunk
@@ -134,7 +139,7 @@ class VectorIndex:
         hits = []
         for i in order:
             c = self.chunks[i]
-            if require and any(c.meta.get(key) != val for key, val in require.items()):
+            if require and any(not _required_ok(c.meta.get(key), val) for key, val in require.items()):
                 continue
             if filters and not _matches(c.meta, filters):
                 continue

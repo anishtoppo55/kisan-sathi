@@ -1,0 +1,10 @@
+# SearXNG for Kisan Saathi: free web search (JSON API) used when the knowledge base has no answer.
+# Bound to 127.0.0.1 only (see setup_server.sh); never expose it publicly.
+use_default_settings: true
+server:
+  secret_key: "__SEARXNG_SECRET__"   # replaced with a random value by setup_server.sh
+  limiter: false                      # only the app on this machine calls it
+  image_proxy: false
+search:
+  safe_search: 1
+  formats: [html, json]

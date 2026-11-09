@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT))
 
 from app.clients.gemini import GeminiClient  # noqa: E402
 from app.clients.weather import WeatherClient  # noqa: E402
+from app.clients.websearch import DdgsClient, SearxngClient, WebSearch  # noqa: E402
 from app.config import get_settings  # noqa: E402
 from app.main import guess_lang  # noqa: E402
 from app.modules import yojana  # noqa: E402
@@ -44,7 +45,10 @@ async def main(questions):
     async with httpx.AsyncClient() as http:
         g = GeminiClient(s.gemini_api_key.get_secret_value())
         p = Pipeline(g, index=VectorIndex.load(ROOT / "kb" / "index"), schemes=yojana.load_schemes(),
-                     mausam=MausamSaathi(WeatherClient(http), g), threshold=s.kb_score_threshold)
+                     mausam=MausamSaathi(WeatherClient(http), g), threshold=s.kb_score_threshold,
+                     websearch=WebSearch([SearxngClient(http, s.searxng_url, s.web_search_timeout_s),
+                                          DdgsClient(timeout_s=s.web_search_timeout_s + 4)]),
+                     use_grounding=s.gemini_grounding)
         for q in questions:
             t = time.time()
             r = await p.handle(q, guess_lang(q), "eval")

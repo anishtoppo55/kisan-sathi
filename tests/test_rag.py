@@ -86,4 +86,15 @@ def test_real_kb_parses():
     chunks = load_kb_dir(Path(__file__).resolve().parents[1] / "kb")
     mods = {c.meta.get("module") for c in chunks}
     assert mods == {"yojana", "crop"}
-    assert {c.meta.get("crop") for c in chunks if c.meta.get("module") == "crop"} == {"paddy", "chana", "wheat", "teora"}
+    assert {c.meta.get("crop") for c in chunks if c.meta.get("module") == "crop"} == {"paddy", "chana", "wheat", "teora", "maize", "all"}
+    cal = [c for c in chunks if c.meta.get("crop") == "all"]
+    assert len(cal) >= 7 and any("November" in c.title for c in cal)
+
+
+def test_calendar_chunk_matches_any_required_crop():
+    chunks = [Chunk("cal", "Calendar — November", "x", {"module": "crop", "crop": "all"}),
+              Chunk("w", "Wheat", "x", {"module": "crop", "crop": "wheat"}),
+              Chunk("p", "Paddy", "x", {"module": "crop", "crop": "paddy"})]
+    idx = VectorIndex(chunks, np.array([[1, 0], [0.9, 0.1], [0.8, 0.2]], dtype=float))
+    assert [h.chunk.id for h in idx.search([1, 0], k=3, require={"module": "crop", "crop": "wheat"})] == ["cal", "w"]
+    assert [h.chunk.id for h in idx.search([1, 0], k=3, require={"module": "crop"})] == ["cal", "w", "p"]

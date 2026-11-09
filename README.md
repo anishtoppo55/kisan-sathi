@@ -6,11 +6,11 @@ Built for the Gnani AI *Great Indian AI Internship Challenge*.
 | Module | What it does |
 |---|---|
 | **Yojana Saathi** | Answers scheme questions (PM-Kisan, Krishak Unnati / dhaan kharidi, PMFBY, KCC, Soil Health Card) from a curated knowledge base, and checks eligibility from what the farmer says or an editable form. |
-| **Crop Saathi** | Stage-specific advice for paddy, chana, wheat and teora (pests, diseases, irrigation, fertilizer), with doses taken only from ICAR/NCIPM sources. |
+| **Crop Saathi** | Stage-specific advice for paddy, chana, wheat, teora and maize, plus a month-by-month sowing calendar (pests, diseases, irrigation, fertilizer), with doses taken only from ICAR/NCIPM sources. |
 | **Mausam Saathi** | 7-day forecast for the farmer's district with rule-based advisories (postpone irrigation before rain, frost, heat, disease weather). |
 
 **Stack:** Gnani **Prisma v3.0** (speech-to-text, `indic-auto`) · Gnani **Timbre v3.0** (text-to-speech, male voice Yashraj; v2.5 Deepak/Pranav fallback, set `TTS_VOICE` in `.env` to change) ·
-Gemini (routing, answers, embeddings, Google Search fallback) · FastAPI · Open-Meteo · plain HTML/JS + Pico CSS + Chart.js.
+Gemini Flash-Lite (routing, answers, embeddings) · SearXNG + ddgs (free web search) · FastAPI · Open-Meteo · plain HTML/CSS/JS + Chart.js.
 
 ```
 Browser (mic / chat / cards) ──► FastAPI ──► ffmpeg ─► Prisma v3.0 (STT)
@@ -20,7 +20,8 @@ Browser (mic / chat / cards) ──► FastAPI ──► ffmpeg ─► Prisma v3
                                    │     ├─ eligibility → profile extraction + rules (kb/schemes.json)
                                    │     ├─ crop        → RAG over kb/crops (crop/stage filters) + crop card
                                    │     └─ mausam      → Open-Meteo + advisory rules + weather chart
-                                   │   KB miss (score < 0.70 or NO_ANSWER) → Gemini + Google Search, with sources
+                                   │   KB miss (score < 0.70 or NO_ANSWER) → SearXNG / DuckDuckGo search → Gemini summary with sources
+                                   │     → else a labelled "general information, confirm with KVK" answer (no doses)
                                    └─► Timbre (TTS) ─► MP3 back to the browser
 ```
 
@@ -28,10 +29,14 @@ Browser (mic / chat / cards) ──► FastAPI ──► ffmpeg ─► Prisma v3
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 cp .env.example .env            # put GNANI_API_KEY and GEMINI_API_KEY in it
+# optional, free web search for questions outside the knowledge base:
+docker run -d --name searxng -p 127.0.0.1:8888:8080 \
+  -v "$PWD/deploy/searxng/settings.yml:/etc/searxng/settings.yml:ro" searxng/searxng:latest
 env -u PYTHONPATH .venv/bin/uvicorn app.main:app --reload
 # open http://localhost:8000   (mic works on localhost; elsewhere it needs HTTPS)
 ```
 `ffmpeg` must be installed (browser audio is converted to 16 kHz WAV for Prisma).
+Without SearXNG the app falls back to DuckDuckGo (`ddgs`) and then to a labelled general answer.
 
 ## Scripts
 | Command | Purpose |

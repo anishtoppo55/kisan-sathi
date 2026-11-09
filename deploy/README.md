@@ -44,3 +44,16 @@ Then open the URL on your phone, tap the mic and ask a question.
 - One uvicorn worker on purpose: session memory, TTS cache and the rate limiter are in-process.
 - Rate limit: 20 `/api/*` requests per minute per IP (`RATE_LIMIT_PER_MINUTE` in `.env`).
 - Uvicorn trusts `X-Forwarded-For` only from Caddy on 127.0.0.1, so the limit applies per real client IP.
+
+## Free web search (SearXNG)
+When the knowledge base has no answer, the app searches the web with a self-hosted
+[SearXNG](https://docs.searxng.org/) instance (no API key, no billing), falling back to DuckDuckGo
+via `ddgs`, then to a clearly labelled general answer. `setup_server.sh` installs Docker and starts it:
+
+```bash
+sudo docker ps --filter name=searxng          # should be "Up"
+curl -s "http://127.0.0.1:8888/search?q=maize&format=json" | head -c 200
+```
+It listens on 127.0.0.1 only. Datacenter IPs are sometimes blocked by upstream engines; the
+DuckDuckGo fallback and the general answer cover that. The URL is `SEARXNG_URL` in `.env`
+(default `http://127.0.0.1:8888`).

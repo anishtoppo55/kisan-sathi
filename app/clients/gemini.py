@@ -18,9 +18,11 @@ from google.genai import types
 
 log = logging.getLogger(__name__)
 
-# gemini-3.8-flash returned 503 (high demand) during testing, so the stable 3.6 flash goes first.
-ANSWER_MODELS = ("gemini-3.6-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite")
-FAST_MODELS = ("gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.6-flash")
+# Free-tier daily limits (AI Studio, Nov 2026): 3.6/3.8 Flash 20 RPD, 3.5/3.1 Flash-Lite 500 RPD.
+# Answers go to 3.5 Flash-Lite and small JSON tasks to 3.1 Flash-Lite, so the two 500-RPD
+# quotas share the load; the 20-RPD Flash models are last resorts only.
+ANSWER_MODELS = ("gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.6-flash")
+FAST_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.6-flash")
 EMBED_MODEL = "gemini-embedding-2"
 EMBED_DIM = 768
 TRANSIENT = {429, 500, 503, 504}
@@ -63,28 +65,40 @@ def extract_sources(response) -> list[dict]:
     return sources
 
 
+def _warn_if_truncated(resp) -> None:
+    for cand in getattr(resp, "candidates", None) or []:
+        reason = str(getattr(cand, "finish_reason", "") or "")
+        if reason and "STOP" not in reason:
+            log.warning("Gemini answer finished with %s (may be cut short)", reason)
+
+
 def _is_transient(e: Exception) -> bool:
     return isinstance(e, genai_errors.APIError) and getattr(e, "code", None) in TRANSIENT
 
 
 class GeminiClient:
-    def __init__(self, api_key: str, answer_models=ANSWER_MODELS, fast_models=FAST_MODELS, timeout_s: float = 25.0):
+    def __init__(self, api_key: str, answer_models=ANSWER_MODELS, fast_models=FAST_MODELS, timeout_s: float = 20.0,
+                 fast_timeout_s: float = 8.0):
         self._client = genai.Client(api_key=api_key)
         self.answer_models = tuple(answer_models)
         self.fast_models = tuple(fast_models)
         self.timeout_s = timeout_s
+        # Small JSON tasks (routing, extraction) should answer in ~2 s; a stuck call moves on quickly.
+        self.fast_timeout_s = fast_timeout_s
 
-    async def _generate(self, models, contents, cfg, what: str, rounds: int = 2):
+    async def _generate(self, models, contents, cfg, what: str, rounds: int = 2, timeout_s: float | None = None):
         """Try each model in order; on transient errors move to the next one.
         The whole chain is tried `rounds` times with a short pause in between."""
         last: Exception | None = None
         for round_ in range(rounds):
             for model in models:
                 try:
-                    return await asyncio.wait_for(
+                    resp = await asyncio.wait_for(
                         self._client.aio.models.generate_content(model=model, contents=contents, config=cfg),
-                        self.timeout_s,
+                        timeout_s or self.timeout_s,
                     )
+                    log.info("Gemini %s answered by %s", what, model)
+                    return resp
                 except asyncio.TimeoutError as e:
                     last = e
                     log.warning("Gemini %s timed out on %s", what, model)
@@ -105,7 +119,7 @@ class GeminiClient:
         *,
         fast: bool = False,
         temperature: float = 0.3,
-        max_tokens: int = 800,
+        max_tokens: int = 1024,
     ) -> str:
         cfg = types.GenerateContentConfig(
             system_instruction=system,
@@ -114,7 +128,9 @@ class GeminiClient:
             thinking_config=types.ThinkingConfig(thinking_level="low"),
         )
         models = self.fast_models if fast else self.answer_models
-        resp = await self._generate(models, _contents(history or [], user_text), cfg, "generate")
+        resp = await self._generate(models, _contents(history or [], user_text), cfg, "generate",
+                                    timeout_s=self.fast_timeout_s if fast else None)
+        _warn_if_truncated(resp)
         text = (resp.text or "").strip()
         if not text:
             raise GeminiError("Gemini returned an empty answer")
@@ -129,7 +145,7 @@ class GeminiClient:
             thinking_config=types.ThinkingConfig(thinking_level="low"),
         )
         models = self.fast_models if fast else self.answer_models
-        resp = await self._generate(models, user_text, cfg, "json")
+        resp = await self._generate(models, user_text, cfg, "json", timeout_s=self.fast_timeout_s if fast else None)
         try:
             data = json.loads(resp.text or "{}")
         except json.JSONDecodeError as e:

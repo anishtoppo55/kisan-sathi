@@ -33,6 +33,20 @@ if [ ! -f .env ]; then
 fi
 chmod 600 .env
 
+# SearXNG (free web search) in Docker, reachable only from this machine on 127.0.0.1:8888
+if ! command -v docker >/dev/null; then
+  sudo apt-get install -y docker.io
+  sudo systemctl enable --now docker
+fi
+sudo mkdir -p /etc/searxng
+if [ ! -f /etc/searxng/settings.yml ]; then
+  sed "s|__SEARXNG_SECRET__|$(openssl rand -hex 32)|" deploy/searxng/settings.yml | sudo tee /etc/searxng/settings.yml >/dev/null
+fi
+if ! sudo docker ps -a --format '{{.Names}}' | grep -qx searxng; then
+  sudo docker run -d --name searxng --restart unless-stopped -p 127.0.0.1:8888:8080 \
+    -v /etc/searxng/settings.yml:/etc/searxng/settings.yml:ro searxng/searxng:latest
+fi
+
 sudo cp deploy/kisan-saathi.service /etc/systemd/system/kisan-saathi.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now kisan-saathi

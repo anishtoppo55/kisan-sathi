@@ -1,5 +1,174 @@
 [
  {
+  "id": "calendar#overview",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — overview",
+  "text": "Month-by-month guide to what farmers in the Chhattisgarh plains (Raipur, Durg, Bilaspur, Bemetara, Dhamtari, Mahasamund and nearby districts) sow and harvest. Week numbers (\"II week\") mean the second week of the month. Dates shift with rainfall and soil moisture; in Bastar and Surguja (plateau and hill districts) sowing can differ by 1–2 weeks. Choose the crop by soil (bhata, matasi, dorsa, kanhar) and irrigation, and confirm with your RAEO or KVK.",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "calendar#1",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — June – July: kharif sowing (खरीफ बुवाई)",
+  "text": "- Paddy (dhaan): sow from June II week to July II week (nursery or direct seeding with the monsoon). Harvest November I–III week.\n- Maize (makka): sow June III week to July I week. Harvest October I–II week.\n- Pulses: arhar (tur) June IV week to July II week (harvest late December–January); urad and moong June IV week to July II week (harvest September–early October).\n- Oilseeds: soybean June IV week to July II week; groundnut July I–II week; til (sesamum) July II–IV week. Harvest in October.\n- Millets: kodo and kutki June IV week to July I week (harvest late September–early October). Kulthi July I–II week.\n- Krishak Unnati Yojana gives input assistance for pulses, oilseeds, maize, kodo, kutki and ragi, also when farmers shift from paddy (see the scheme guide).",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "June – July: kharif sowing (खरीफ बुवाई)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "sowing"
+   ],
+   "month": "June, July"
+  }
+ },
+ {
+  "id": "calendar#2",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — August – September: kharif crop care (खरीफ फसल की देखभाल)",
+  "text": "- No major sowing; the kharif crops are growing. Watch paddy for stem borer, brown planthopper (BPH) and blast, and drain excess water.\n- Late September: harvest of urad, moong, kodo and kutki starts.\n- Plan the rabi crop now and arrange seed of recommended varieties; get the soil tested after harvest (Soil Health Card).",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "August – September: kharif crop care (खरीफ फसल की देखभाल)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "sowing"
+   ],
+   "month": "August, September"
+  }
+ },
+ {
+  "id": "calendar#3",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — October: harvest of early kharif, start of rabi (अक्टूबर)",
+  "text": "- Harvest: maize (October I–II week), soybean, groundnut and til (October).\n- Start rabi sowing on residual moisture: linseed (alsi) and safflower (kusum) from October I week; mustard and peas from October II week; lentil (masoor) from October II week; lathyrus (teora) and kulthi from October III week.\n- Chana: ICAR advises sowing between 15 October and 30 November.\n- Utera (relay) crops such as teora are broadcast into standing paddy 1–2 weeks before paddy harvest, when the field is moist.",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "October: harvest of early kharif, start of rabi (अक्टूबर)",
+   "stage": [
+    "sowing",
+    "maturity"
+   ],
+   "topic": [
+    "sowing",
+    "harvest"
+   ],
+   "month": "October"
+  }
+ },
+ {
+  "id": "calendar#4",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — November: paddy harvest and main rabi sowing (नवंबर)",
+  "text": "- Harvest paddy (November I–III week) and sell at the cooperative society; paddy procurement starts 15 November.\n- Sow: chana (gram) November II week to December II week; wheat (gehun) November III week onward — ICAR advises finishing timely-sown wheat by 25 November; rabi maize November II week onward; rabi moong and urad November II week to December I week.\n- Finish mustard, lentil, linseed, safflower and teora sowing by about 15–20 November; later sowing lowers yield.\n- Good month for soil testing right after paddy harvest.",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "November: paddy harvest and main rabi sowing (नवंबर)",
+   "stage": [
+    "sowing",
+    "maturity",
+    "post-harvest"
+   ],
+   "topic": [
+    "sowing",
+    "harvest"
+   ],
+   "month": "November"
+  }
+ },
+ {
+  "id": "calendar#5",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — December: late rabi sowing (दिसंबर)",
+  "text": "- Late-sown wheat: early maturing varieties between 25 November and 15 December (use a higher seed rate; see the wheat guide).\n- Chana sowing should be finished by December II week.\n- Rabi/summer paddy where irrigation is assured: December II week onward. Groundnut (rabi/summer) from December IV week.\n- Harvest of arhar (tur) starts late December.",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "December: late rabi sowing (दिसंबर)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "sowing"
+   ],
+   "month": "December"
+  }
+ },
+ {
+  "id": "calendar#6",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — January – February: rabi crop care and early harvest (जनवरी – फ़रवरी)",
+  "text": "- Watch for frost (paala) on clear cold nights: light irrigation in the evening protects chana, wheat and teora.\n- Harvest: lentil (late January–February), mustard (February I–III week), peas and rabi maize (February), teora (February–early March).\n- Fodder maize for summer: sow by the end of February where irrigation is available.",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "January – February: rabi crop care and early harvest (जनवरी – फ़रवरी)",
+   "stage": [
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "harvest"
+   ],
+   "month": "January, February"
+  }
+ },
+ {
+  "id": "calendar#7",
+  "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when) — March – May: rabi harvest and summer (मार्च – मई)",
+  "text": "- Harvest wheat and chana (March III week to April I week), linseed and safflower (February–March), rabi paddy (late March–April).\n- Summer groundnut is harvested in April.\n- After harvest, deep summer ploughing helps control soil pests and weeds; prepare fields and bunds for the next kharif season and get seed ready before the monsoon.",
+  "meta": {
+   "id": "calendar",
+   "module": "crop",
+   "crop": "all",
+   "title": "Fasal calendar — Chhattisgarh plains (kab kya boyein / what to sow when)",
+   "source_name": "PMFBY district crop calendar (Raipur, 2018) and ICAR Rabi Agro-Advisory for Farmers (Chhattisgarh section)",
+   "source_url": "https://pmfby.gov.in/pdf/New_Crop_Calendar_20.09.18.pdf",
+   "section": "March – May: rabi harvest and summer (मार्च – मई)",
+   "stage": [
+    "maturity",
+    "post-harvest"
+   ],
+   "topic": [
+    "harvest"
+   ],
+   "month": "March, April, May"
+  }
+ },
+ {
   "id": "chana#overview",
   "title": "Chana / Gram (चना) — Chhattisgarh rabi — overview",
   "text": "Chana is the main rabi pulse of Chhattisgarh. It is sown after the kharif harvest in October–November, mostly on residual moisture, and harvested in February–March. It needs little water and fixes nitrogen in the soil.",
@@ -152,6 +321,170 @@
    "source_name": "NCIPM/DPPQS Integrated Pest Management Package for Chickpea",
    "source_url": "https://ppqs.gov.in/sites/default/files/chickpea.pdf",
    "section": "Harvest (katai)",
+   "stage": [
+    "maturity",
+    "post-harvest"
+   ],
+   "topic": [
+    "harvest"
+   ]
+  }
+ },
+ {
+  "id": "maize#overview",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — overview",
+  "text": "Maize (makka, bhutta) is grown in Chhattisgarh mainly in kharif on well drained uplands, and in rabi where irrigation is assured. It is a good alternative to paddy in upland (tikra) fields, and Krishak Unnati Yojana gives input assistance to farmers who grow maize instead of paddy. Maize needs well drained soil; it suffers in waterlogged fields.",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "overview"
+  }
+ },
+ {
+  "id": "maize#1",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Sowing time (बुवाई का समय)",
+  "text": "- Kharif maize in the Chhattisgarh plains: sow from June III week to July I week (PMFBY calendar, Raipur); harvest in October I–II week.\n- Rabi maize: in neighbouring Madhya Pradesh ICAR-IIMR recommends 15 October to 15 November; the PMFBY calendar for Raipur lists November II week onward, harvest February. Rabi maize needs assured irrigation.\n- Fodder maize: October–November in rabi, or by the end of February as a summer crop (ICAR Rabi Agro-Advisory, Chhattisgarh).",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Sowing time (बुवाई का समय)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "sowing"
+   ]
+  }
+ },
+ {
+  "id": "maize#2",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Seed rate, spacing and seed treatment (बीज दर, दूरी, बीज उपचार)",
+  "text": "- Grain maize: 20–22 kg seed per hectare, row spacing 60 cm and 18–20 cm between plants (about 90,000 plants per hectare); sow 4–5 cm deep (ICAR-IIMR).\n- Use F1 hybrid seed of a variety recommended for your area; ask the KVK.\n- Raised-bed (ridge) sowing helps in both heavy rain and limited irrigation and saves 20–30% irrigation water.\n- Seed treatment for leaf blights and sheath blight: Bavistin + Captan (1:1) at 2 g per kg seed; against termite and shoot fly: imidacloprid at 4 g per kg seed (ICAR-IIMR). The NCIPM maize package also lists thiram 75% WS at 25–30 g per kg seed. Ask the KVK which product is available locally.\n- Fodder maize: 50–60 kg seed per hectare (ICAR Rabi Agro-Advisory).",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Seed rate, spacing and seed treatment (बीज दर, दूरी, बीज उपचार)",
+   "stage": [
+    "sowing"
+   ],
+   "topic": [
+    "sowing",
+    "disease",
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "maize#3",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Fertilizer (खाद)",
+  "text": "- Apply well rotted FYM (gobar khaad) 10–15 days before sowing; follow your Soil Health Card for the exact dose.\n- For high-yield rabi hybrid maize ICAR-IIMR recommends 150–180 kg N, 70–80 kg P2O5, 70–80 kg K2O and 25 kg zinc sulphate per hectare, with 10 t FYM.\n- Give all phosphorus, potash and zinc at sowing. Split nitrogen: 20% at sowing, 25% at four-leaf stage, 30% at eight-leaf stage, 20% at tasseling and 5% at grain filling.\n- Fodder maize (Chhattisgarh advisory): 100 kg N, 40 kg P and 40 kg K per hectare; half N at sowing and half at knee-high stage.",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Fertilizer (खाद)",
+   "stage": [
+    "sowing",
+    "vegetative"
+   ],
+   "topic": [
+    "fertilizer"
+   ]
+  }
+ },
+ {
+  "id": "maize#4",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Irrigation and drainage (सिंचाई)",
+  "text": "- Kharif maize: drain excess water quickly; standing water damages the crop.\n- Rabi maize needs 4–6 irrigations at 20–25 day intervals. The most important irrigations are just before flowering, after flowering (tasseling–silking) and at early grain filling. Do not let the crop face water stress from flowering to grain filling.\n- Skip irrigation when good rain is received or forecast.",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Irrigation and drainage (सिंचाई)",
+   "stage": [
+    "vegetative",
+    "flowering",
+    "maturity"
+   ],
+   "topic": [
+    "irrigation"
+   ]
+  }
+ },
+ {
+  "id": "maize#5",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Fall armyworm (फॉल आर्मीवर्म / सैनिक कीट)",
+  "text": "- Symptom: ragged holes and \"window panes\" in young leaves, sawdust-like droppings in the whorl (gobh). The larva has an inverted \"Y\" on the head and four dots in a square near the tail.\n- Monitor: pheromone traps at 5 per acre; start scouting as soon as seedlings emerge. Erect bird perches.\n- Act when: 5% plants damaged at seedling to early whorl stage (3–4 weeks after emergence); 10% fresh whorl damage at mid-whorl and 20% at late-whorl stage (5–7 weeks).\n- Early stage: neem oil at 5 ml per litre as egg-laying deterrent one week after sowing, or 5% NSKE / azadirachtin 1500 ppm at 5 ml per litre. Put dry sand, or sand + lime (9:1), into the whorls in the first 30 days.\n- Mid to late whorl stage (chemical, only after the threshold): spinetoram 11.7% SC at 0.5 ml per litre water, or chlorantraniliprole 18.5% SC at 0.4 ml per litre water, or thiamethoxam 12.6% + lambda-cyhalothrin 9.5% at 0.25 ml per litre water. Spray into the whorl.\n- From tasseling onward insecticide spraying is not cost effective; hand-pick larvae.\n- Source: ICAR-CCARI Extension Folder 111 (2023).",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Fall armyworm (फॉल आर्मीवर्म / सैनिक कीट)",
+   "stage": [
+    "sowing",
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "pest"
+   ]
+  }
+ },
+ {
+  "id": "maize#6",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Other pests and diseases (अन्य कीट व रोग)",
+  "text": "- Stem borer, shoot fly and termites are other common pests; seed treatment and timely sowing reduce them.\n- Leaf blight (Turcicum / Maydis), downy mildew and stalk rot: act at about 10% incidence (NCIPM ETL). Use resistant hybrids, crop rotation, good drainage and balanced fertilizer (avoid excess N with low K).\n- Ask the KVK before spraying any fungicide.",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Other pests and diseases (अन्य कीट व रोग)",
+   "stage": [
+    "vegetative",
+    "flowering"
+   ],
+   "topic": [
+    "pest",
+    "disease"
+   ]
+  }
+ },
+ {
+  "id": "maize#7",
+  "title": "Makka / Maize (मक्का) — Chhattisgarh — Harvest (कटाई)",
+  "text": "- Harvest when the husk turns dry and brown and grains are hard; kharif maize is ready in October, rabi maize in February–March.\n- Dry cobs and grain well in the sun before storage to prevent fungus (aflatoxin); store in clean, dry bags.",
+  "meta": {
+   "id": "maize",
+   "module": "crop",
+   "crop": "maize",
+   "title": "Makka / Maize (मक्का) — Chhattisgarh",
+   "source_name": "ICAR-IIMR \"Rabi Maize: Opportunities & Challenges\"; ICAR-CCARI Extension Folder 111 (2023) on fall armyworm; NCIPM/DPPQS IPM Package for Maize; PMFBY crop calendar (Raipur)",
+   "source_url": "https://www.iimr.res.in/storage/publications/bulletins/Rabi-Maize-Opportunities-and-Challenges.pdf",
+   "section": "Harvest (कटाई)",
    "stage": [
     "maturity",
     "post-harvest"

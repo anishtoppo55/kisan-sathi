@@ -20,7 +20,7 @@ Tips: record on the phone over the public HTTPS URL; keep each question under 10
 > 🎤 A farmer speaks → **Gnani Prisma v3.0** transcribes (auto language detection, code-mixed speech) → Gemini routes and answers from a curated knowledge base → **Gnani Timbre** speaks the answer back.
 >
 > ✅ **Yojana Saathi**: "Mujhe kaun si yojana milegi?" Checks PM-Kisan, Krishak Unnati, Fasal Bima, KCC and Soil Health Card eligibility from what you say.
-> 🌱 **Crop Saathi**: stage-wise advice for dhaan, chana, gehun and teora, with doses only from ICAR/NCIPM sources.
+> 🌱 **Crop Saathi**: stage-wise advice for dhaan, chana, gehun, teora and makka plus a "what to sow this month" calendar, with doses only from ICAR/NCIPM sources.
 > 🌦️ **Mausam Saathi**: 7-day forecast for your district, plus "sinchai karein ya nahi" advice.
 >
 > Try it: <PUBLIC URL>
@@ -49,6 +49,6 @@ Tips: record on the phone over the public HTTPS URL; keep each question under 10
 - **Timbre v3.0** text-to-speech with the male voice **Yashraj** for both Hindi (`hi-IN`) and Roman-script Hinglish (`auto`), with an automatic fallback to the male **Timbre v2.5** voices Deepak (Hindi/Hinglish) and Pranav (English).
 - A **हिंदी | Hinglish** toggle switches the whole interface and every reply (typed or spoken) between Devanagari Hindi and Hinglish; crop-card advice from the English knowledge base is translated with chemical names and doses kept exactly.
 
-**Other technology.** Gemini (intent routing, profile extraction, grounded answers, `gemini-embedding-2` for retrieval, Google Search grounding), FastAPI, Open-Meteo, AWS Lightsail with Caddy HTTPS.
+**Other technology.** Gemini Flash-Lite (intent routing, profile extraction, grounded answers) and `gemini-embedding-2` for retrieval; free web search through self-hosted SearXNG with a DuckDuckGo fallback (sources shown, otherwise a clearly labelled general answer with no doses); FastAPI, Open-Meteo, AWS Lightsail with Caddy HTTPS.
 
 **Contribution.** Solo: design, knowledge base curation, backend, frontend, deployment.
