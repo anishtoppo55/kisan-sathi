@@ -1,7 +1,12 @@
 # Kisan Saathi CG 🌾
 
 Voice-first farm assistant for Chhattisgarh farmers, in Hindi, Hinglish and English.
-Built for the Gnani AI *Great Indian AI Internship Challenge*.
+Built for the Gnani AI *Great Indian AI Internship Challenge* by Anish Deep Toppo (B.Tech Data Science & AI, IIIT Naya Raipur).
+
+- **Live app:** https://kisan-saathi.duckdns.org/ (open on a phone and tap the mic)
+- **Demo video:** https://youtu.be/phamRC-49Hc
+- **Pitch slides:** [assets/pitch_1_what.png](assets/pitch_1_what.png) · [assets/pitch_2_how.png](assets/pitch_2_how.png) · [PDF](assets/kisan_saathi_pitch.pdf)
+- **Video files:** [assets/kisan_saathi_demo.mp4](assets/kisan_saathi_demo.mp4) (2.5 min, desktop) · [assets/kisan_saathi_mobile_60s.mp4](assets/kisan_saathi_mobile_60s.mp4) (58 s, phone)
 
 | Module | What it does |
 |---|---|

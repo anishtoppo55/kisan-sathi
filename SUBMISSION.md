@@ -23,12 +23,13 @@ Tips: record on the phone over the public HTTPS URL; keep each question under 10
 > 🌱 **Crop Saathi**: stage-wise advice for dhaan, chana, gehun, teora and makka plus a "what to sow this month" calendar, with doses only from ICAR/NCIPM sources.
 > 🌦️ **Mausam Saathi**: 7-day forecast for your district, plus "sinchai karein ya nahi" advice.
 >
-> Try it: <PUBLIC URL>
+> Try it: https://kisan-saathi.duckdns.org/
+> Demo: https://youtu.be/phamRC-49Hc
 > Demo 👇
 >
 > @Gnani.ai #GnaniAI #GreatIndianAIInternshipChallenge
 
-(For X, shorten to: "🌾 Kisan Saathi CG: voice assistant for Chhattisgarh farmers in Hindi/Hinglish. Gnani Prisma v3.0 listens, Timbre speaks, Gemini reasons. Yojana eligibility, crop advice, mausam alerts. <URL> @GnaniAI #GnaniAI #GreatIndianAIInternshipChallenge")
+(For X, shorten to: "🌾 Kisan Saathi CG: voice assistant for Chhattisgarh farmers in Hindi/Hinglish. Gnani Prisma v3.0 listens, Timbre speaks, Gemini reasons. Yojana eligibility, crop advice, mausam alerts. https://kisan-saathi.duckdns.org/ @GnaniAI #GnaniAI #GreatIndianAIInternshipChallenge")
 
 ## Written project explanation
 
