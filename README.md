@@ -65,4 +65,4 @@ The **हिंदी | Hinglish** toggle (top bar) switches the page text and t
 Page strings live in the `STRINGS` table in `app/static/app.js` (`data-i18n` keys in `index.html`); a test checks both languages have every key.
 
 ## Deploy
-See [deploy/README.md](deploy/README.md) (AWS Lightsail + Caddy HTTPS on `<ip>.sslip.io`).
+See [deploy/README.md](deploy/README.md): AWS Lightsail + Caddy HTTPS on `<ip>.sslip.io` plus an optional DuckDNS domain (live at https://kisan-saathi.duckdns.org/).

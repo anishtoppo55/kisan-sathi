@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # One-time setup on a fresh Ubuntu 24.04 Lightsail instance. Run ON THE SERVER as user ubuntu:
-#   bash deploy/setup_server.sh <REPO_URL> <STATIC_IP>
+#   bash deploy/setup_server.sh <REPO_URL> <STATIC_IP> [EXTRA_DOMAIN]
+# EXTRA_DOMAIN (optional): your own name pointing at STATIC_IP, e.g. kisan-saathi.duckdns.org
 # Example:
-#   bash deploy/setup_server.sh https://github.com/you/kisan-saathi.git 13.233.10.20
+#   bash deploy/setup_server.sh https://github.com/anishtoppo55/kisan-sathi.git 35.154.167.239 kisan-saathi.duckdns.org
 set -euo pipefail
 
 REPO_URL="${1:?repo url required}"
 STATIC_IP="${2:?static ip required}"
 APP_DIR=/home/ubuntu/kisan-saathi
 SITE_HOST="${STATIC_IP//./-}.sslip.io"   # dashed form also resolves on sslip.io
+EXTRA_DOMAIN="${3:-}"
+SITE_HOSTS="$SITE_HOST${EXTRA_DOMAIN:+, $EXTRA_DOMAIN}"
 
 sudo apt-get update
 sudo apt-get install -y python3-venv python3-pip ffmpeg git debian-keyring debian-archive-keyring apt-transport-https curl
@@ -51,7 +54,7 @@ sudo cp deploy/kisan-saathi.service /etc/systemd/system/kisan-saathi.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now kisan-saathi
 
-sed "s|{\$SITE_HOST}|$SITE_HOST|" deploy/Caddyfile | sudo tee /etc/caddy/Caddyfile >/dev/null
+sed "s|{\$SITE_HOSTS}|$SITE_HOSTS|" deploy/Caddyfile | sudo tee /etc/caddy/Caddyfile >/dev/null
 sudo systemctl reload caddy || sudo systemctl restart caddy
 
-echo "Done. Open: https://$SITE_HOST"
+echo "Done. Open: https://${EXTRA_DOMAIN:-$SITE_HOST}  (also https://$SITE_HOST)"

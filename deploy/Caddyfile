@@ -1,6 +1,7 @@
-# Replace {$SITE_HOST} via the environment, or setup_server.sh writes the real host here.
-# Caddy obtains a Let's Encrypt certificate automatically for <static-ip>.sslip.io.
-{$SITE_HOST} {
+# setup_server.sh replaces {$SITE_HOSTS} with "<ip-dashed>.sslip.io" plus any extra domain,
+# e.g. "35-154-167-239.sslip.io, kisan-saathi.duckdns.org". Caddy gets a Let's Encrypt
+# certificate for each name automatically (ports 80 and 443 must be open).
+{$SITE_HOSTS} {
 	encode gzip
 	request_body {
 		max_size 3MB

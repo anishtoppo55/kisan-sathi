@@ -1,7 +1,10 @@
 # Deploying Kisan Saathi CG on AWS Lightsail
 
 Browsers only allow the microphone over HTTPS, so the app sits behind Caddy, which gets a free
-Let's Encrypt certificate for `<static-ip>.sslip.io`. No domain purchase needed.
+Let's Encrypt certificate for `<static-ip>.sslip.io` (no domain needed) and, optionally, for your own
+name such as a free DuckDNS subdomain.
+
+Current deployment: **https://kisan-saathi.duckdns.org/** (also https://35-154-167-239.sslip.io).
 
 ## 1. Create the instance (Lightsail console)
 1. Lightsail → Create instance → Linux/Unix → **OS only → Ubuntu 24.04 LTS**.
@@ -57,3 +60,14 @@ curl -s "http://127.0.0.1:8888/search?q=maize&format=json" | head -c 200
 It listens on 127.0.0.1 only. Datacenter IPs are sometimes blocked by upstream engines; the
 DuckDuckGo fallback and the general answer cover that. The URL is `SEARXNG_URL` in `.env`
 (default `http://127.0.0.1:8888`).
+
+## Custom domain (DuckDNS, free)
+1. Sign in at https://www.duckdns.org, create a subdomain (e.g. `kisan-saathi`) and set its IP to the
+   Lightsail **static IP**. Because the IP is static, no DuckDNS update script is needed.
+2. Check it resolves: `getent hosts kisan-saathi.duckdns.org` should print the static IP.
+3. Pass it as the third argument to the setup script (or re-run it on an existing server):
+   ```bash
+   bash kisan-saathi/deploy/setup_server.sh <REPO_URL> <STATIC_IP> kisan-saathi.duckdns.org
+   ```
+   This writes one Caddy site block for both names; Caddy fetches a certificate for each.
+4. `curl https://kisan-saathi.duckdns.org/health` should return `{"status":"ok"}`.
