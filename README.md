@@ -5,8 +5,13 @@ Built for the Gnani AI *Great Indian AI Internship Challenge* by Anish Deep Topp
 
 - **Live app:** https://kisan-saathi.duckdns.org/ (open on a phone and tap the mic)
 - **Demo video:** https://youtu.be/phamRC-49Hc
-- **Pitch slides:** [assets/pitch_1_what.png](assets/pitch_1_what.png) · [assets/pitch_2_how.png](assets/pitch_2_how.png) · [PDF](assets/kisan_saathi_pitch.pdf)
+- **How it works:** [project_description.md](project_description.md) (flow, modules, knowledge base, deployment, with screenshots)
+- **Pitch slides:** [PDF](assets/kisan_saathi_pitch.pdf) (both slides below)
 - **Video files:** [assets/kisan_saathi_demo.mp4](assets/kisan_saathi_demo.mp4) (2.5 min, desktop) · [assets/kisan_saathi_mobile_60s.mp4](assets/kisan_saathi_mobile_60s.mp4) (58 s, phone)
+
+![Pitch slide 1: what Kisan Saathi is](assets/pitch_1_what.png)
+
+![Pitch slide 2: how it works and how it is built](assets/pitch_2_how.png)
 
 | Module | What it does |
 |---|---|
